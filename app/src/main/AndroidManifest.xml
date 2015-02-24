@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nkdroid.cropso" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    //GCM
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="com.nkdroid.cropso.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.nkdroid.cropso.permission.C2D_MESSAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".GCM.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.nkdroid.cropso" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".GCM.GcmMessageHandler" />
+
+        <activity
+            android:name=".AboutUsActivity"
+            android:label="@string/title_activity_about_us" >
+        </activity>
+        <activity
+            android:name=".Admin.AdminHomeActivity"
+            android:label="@string/title_activity_admin_home" >
+        </activity>
+        <activity
+            android:name=".Client.ClientHomeActivity"
+            android:label="@string/title_activity_client_home" >
+        </activity>
+        <activity
+            android:name=".Emplyee.EmployeeHomeActivity"
+            android:label="@string/title_activity_employee_home" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmHomeActivity"
+            android:label="@string/title_activity_pm_home" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CropSo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="user_type">
+        <item>Select User Type</item>
+        <item>Admin</item>
+        <item>Client</item>
+        <item>Project Manager</item>
+        <item>Employee</item>
+    </string-array>
+
+    <string name="title_activity_about_us">AboutUsActivity</string>
+    <string name="title_activity_admin_home">AdminHomeActivity</string>
+    <string name="title_activity_client_home">ClientHomeActivity</string>
+    <string name="title_activity_employee_home">EmployeeHomeActivity</string>
+    <string name="title_activity_pm_home">PmHomeActivity</string>
+
+</resources>
