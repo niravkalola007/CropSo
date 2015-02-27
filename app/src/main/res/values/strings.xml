@@ -21,5 +21,11 @@
     <string name="title_activity_client_project_list">ClientProjectListActivity</string>
     <string name="title_activity_client_project_detail">ClientProjectDetailActivity</string>
     <string name="title_activity_client_fedd_back">ClientFeddBackActivity</string>
+    <string name="title_activity_admin_project_list">AdminProjectListActivity</string>
+    <string name="title_activity_admin_client_list">AdminClientListActivity</string>
+    <string name="title_activity_admin_client_detail">AdminClientDetailActivity</string>
+    <string name="title_activity_admin_project_detail">AdminProjectDetailActivity</string>
+    <string name="title_activity_admin_editable_project">AdminEditableProjectActivity</string>
+    <string name="title_activity_admin_editable_client">AdminEditableClientActivity</string>
 
 </resources>

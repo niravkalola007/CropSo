@@ -6,16 +6,37 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.nkdroid.cropso.LoginActivity;
 import com.nkdroid.cropso.R;
 
 public class AdminHomeActivity extends ActionBarActivity {
     private Toolbar toolbar;
+    private TextView clientList,projectList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
+        clientList= (TextView) findViewById(R.id.clientList);
+        projectList= (TextView) findViewById(R.id.projectList);
+
+        clientList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AdminHomeActivity.this,AdminClientListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        projectList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AdminHomeActivity.this,AdminProjectListActivity.class);
+                startActivity(intent);
+            }
+        });
         setActionBar();
     }
 

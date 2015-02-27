@@ -18,6 +18,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/clientList"
                 android:layout_marginTop="8dp"
                 android:text="Clients"
                 android:gravity="center"
@@ -28,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/projectList"
                 android:layout_marginTop="8dp"
                 android:text="Project Managers"
                 android:gravity="center"

@@ -77,6 +77,30 @@
             android:name=".Client.ClientFeddBackActivity"
             android:label="@string/title_activity_client_fedd_back" >
         </activity>
+        <activity
+            android:name=".Admin.AdminProjectListActivity"
+            android:label="@string/title_activity_admin_project_list" >
+        </activity>
+        <activity
+            android:name=".Admin.AdminClientListActivity"
+            android:label="@string/title_activity_admin_client_list" >
+        </activity>
+        <activity
+            android:name=".Admin.AdminClientDetailActivity"
+            android:label="@string/title_activity_admin_client_detail" >
+        </activity>
+        <activity
+            android:name=".Admin.AdminProjectDetailActivity"
+            android:label="@string/title_activity_admin_project_detail" >
+        </activity>
+        <activity
+            android:name=".Admin.AdminEditableProjectActivity"
+            android:label="@string/title_activity_admin_editable_project" >
+        </activity>
+        <activity
+            android:name=".Admin.AdminEditableClientActivity"
+            android:label="@string/title_activity_admin_editable_client" >
+        </activity>
     </application>
 
 </manifest>
