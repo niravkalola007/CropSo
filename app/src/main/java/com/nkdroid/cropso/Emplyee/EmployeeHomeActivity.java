@@ -1,11 +1,13 @@
 package com.nkdroid.cropso.Emplyee;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.nkdroid.cropso.LoginActivity;
 import com.nkdroid.cropso.R;
 
 public class EmployeeHomeActivity extends ActionBarActivity {
@@ -22,14 +24,14 @@ public class EmployeeHomeActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             toolbar.setTitle("CropSo");
+            toolbar.setSubtitle("Hi! Employee");
             setSupportActionBar(toolbar);
         }
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_employee_home, menu);
+        getMenuInflater().inflate(R.menu.menu_logout, menu);
         return true;
     }
 
@@ -41,10 +43,14 @@ public class EmployeeHomeActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_logout) {
+            Intent intent=new Intent(EmployeeHomeActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 }

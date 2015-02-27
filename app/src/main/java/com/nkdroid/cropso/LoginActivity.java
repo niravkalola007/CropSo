@@ -27,6 +27,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.nkdroid.cropso.Admin.AdminHomeActivity;
+import com.nkdroid.cropso.Client.ClientHomeActivity;
+import com.nkdroid.cropso.Emplyee.EmployeeHomeActivity;
+import com.nkdroid.cropso.ProjectManager.PmHomeActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,6 +45,7 @@ public class LoginActivity extends ActionBarActivity {
     private GoogleCloudMessaging gcm;
     private String regid;
     private String PROJECT_NUMBER = "92884720384";
+    ArrayList<String> userTypeList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +57,7 @@ public class LoginActivity extends ActionBarActivity {
         txtLogin= (TextView) findViewById(R.id.txtLogin);
         spinnerUserType= (Spinner) findViewById(R.id.spinnerUserType);
 
-        ArrayList<String> userTypeList=new ArrayList<>();
+        userTypeList=new ArrayList<>();
         userTypeList.add("Select User Type");
         userTypeList.add("Admin");
         userTypeList.add("Client");
@@ -76,7 +80,7 @@ public class LoginActivity extends ActionBarActivity {
                     Toast.makeText(LoginActivity.this,"Please Select User Type",Toast.LENGTH_LONG).show();
                 } else {
                     if(isConnected()==true) {
-                        Toast.makeText(LoginActivity.this, "Done", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(LoginActivity.this, "Done", Toast.LENGTH_LONG).show();
                         getRegId();
                     } else {
                         Toast.makeText(LoginActivity.this, "Internet Connection Unavailable", Toast.LENGTH_LONG).show();
@@ -100,7 +104,7 @@ public class LoginActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
+        getMenuInflater().inflate(R.menu.menu_about_us, menu);
         return true;
     }
 
@@ -224,10 +228,24 @@ public class LoginActivity extends ActionBarActivity {
                         SharedPreferences.Editor editor=sharedPreferences.edit();
                         editor.putString("GCM_ID",regid);
                         editor.commit();
+                        if(spinnerUserType.getSelectedItemPosition()==1){
+                            Intent i = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                            startActivity(i);
+                            finish();
+                        }else if(spinnerUserType.getSelectedItemPosition()==2){
+                            Intent i = new Intent(LoginActivity.this, ClientHomeActivity.class);
+                            startActivity(i);
+                            finish();
+                        } else if(spinnerUserType.getSelectedItemPosition()==3){
+                            Intent i = new Intent(LoginActivity.this, PmHomeActivity.class);
+                            startActivity(i);
+                            finish();
+                        } else if(spinnerUserType.getSelectedItemPosition()==4){
+                            Intent i = new Intent(LoginActivity.this, EmployeeHomeActivity.class);
+                            startActivity(i);
+                            finish();
+                        }
 
-                        Intent i = new Intent(LoginActivity.this, AdminHomeActivity.class);
-                        startActivity(i);
-                        finish();
                     }
                 } catch (IOException ex) {
                     ex.printStackTrace();

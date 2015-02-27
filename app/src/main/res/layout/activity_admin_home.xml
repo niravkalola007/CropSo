@@ -6,4 +6,39 @@
     tools:context=".LoginActivity">
     <include layout="@layout/app_bar" />
 
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:padding="@dimen/normal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:text="Clients"
+                android:gravity="center"
+                android:textSize="@dimen/large_text"
+                android:textColor="@color/white"
+                android:background="#009688"
+                android:padding="@dimen/extra_large_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="8dp"
+                android:text="Project Managers"
+                android:gravity="center"
+                android:textSize="@dimen/large_text"
+                android:textColor="@color/white"
+                android:background="#FF9800"
+                android:padding="@dimen/extra_large_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>
