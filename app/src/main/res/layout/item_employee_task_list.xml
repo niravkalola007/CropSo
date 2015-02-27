@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- A CardView that contains a TextView -->
+    <android.support.v7.widget.CardView
+
+        android:id="@+id/card_view"
+        android:layout_marginTop="8dp"
+
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="4dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="@dimen/normal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="#494949"
+                android:text="Task Title"
+                android:textSize="@dimen/large_text"
+                android:id="@+id/txt_project_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:gravity="right"
+                android:layout_marginTop="@dimen/small_margin"
+                android:textColor="@color/primaryColor"
+                android:text="Status: Done"
+                android:textSize="@dimen/normal_text"
+                android:id="@+id/txt_project_abstract"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

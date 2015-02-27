@@ -27,5 +27,6 @@
     <string name="title_activity_admin_project_detail">AdminProjectDetailActivity</string>
     <string name="title_activity_admin_editable_project">AdminEditableProjectActivity</string>
     <string name="title_activity_admin_editable_client">AdminEditableClientActivity</string>
+    <string name="title_activity_employee_task_detail">EmployeeTaskDetailActivity</string>
 
 </resources>
