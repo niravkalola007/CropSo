@@ -18,5 +18,8 @@
     <string name="title_activity_client_home">ClientHomeActivity</string>
     <string name="title_activity_employee_home">EmployeeHomeActivity</string>
     <string name="title_activity_pm_home">PmHomeActivity</string>
+    <string name="title_activity_client_project_list">ClientProjectListActivity</string>
+    <string name="title_activity_client_project_detail">ClientProjectDetailActivity</string>
+    <string name="title_activity_client_fedd_back">ClientFeddBackActivity</string>
 
 </resources>
