@@ -36,5 +36,9 @@
     <string name="title_activity_employee_project_list">EmployeeProjectListActivity</string>
     <string name="title_activity_employee_project_detail">EmployeeProjectDetailActivity</string>
     <string name="title_activity_employee_suggetion_list">EmployeeSuggetionListActivity</string>
+    <string name="title_activity_project_list">ProjectListActivity</string>
+    <string name="title_activity_project_dashboard">ProjectDashboardActivity</string>
+    <string name="title_activity_pm_project_detail">PmProjectDetailActivity</string>
+    <string name="title_activity_pm_editable_project_details">PmEditableProjectDetails</string>
 
 </resources>

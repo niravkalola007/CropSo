@@ -133,6 +133,22 @@
             android:name=".Emplyee.EmployeeSuggetionListActivity"
             android:label="@string/title_activity_employee_suggetion_list" >
         </activity>
+        <activity
+            android:name=".ProjectManager.ProjectListActivity"
+            android:label="@string/title_activity_project_list" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.ProjectDashboardActivity"
+            android:label="@string/title_activity_project_dashboard" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmProjectDetailActivity"
+            android:label="@string/title_activity_pm_project_detail" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmEditableProjectDetails"
+            android:label="@string/title_activity_pm_editable_project_details" >
+        </activity>
     </application>
 
 </manifest>
