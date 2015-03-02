@@ -1,0 +1,100 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+    <include layout="@layout/app_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:padding="@dimen/normal_margin"
+       android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+<EditText
+    android:id="@+id/etFirstName"
+    android:textSize="18sp"
+    android:textColor="#494949"
+    android:hint="Enter First Name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etLastName"
+        android:textSize="18sp"
+        android:textColor="#494949"
+        android:hint="Enter Last Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:inputType="textEmailAddress"
+        android:textSize="18sp"
+        android:textColor="#494949"
+        android:hint="Enter Email Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:textSize="18sp"
+        android:inputType="textPassword|numberPassword"
+        android:textColor="#494949"
+        android:hint="Enter Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etAddress"
+        android:textSize="18sp"
+        android:textColor="#494949"
+        android:minLines="3"
+        android:hint="Enter Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etMobile"
+        android:textSize="18sp"
+        android:textColor="#494949"
+        android:inputType="number"
+        android:hint="Enter Mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etPostion"
+        android:textSize="18sp"
+        android:textColor="#494949"
+
+        android:hint="Enter Postion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    </LinearLayout>
+        <TextView
+
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/white"
+            android:background="@color/primaryColor"
+            android:padding="10dp"
+
+            android:gravity="center"
+            android:text="ADD PROJECT MANAGER"
+            android:textSize="@dimen/normal_text"
+            android:id="@+id/txt_project_manager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    </LinearLayout>

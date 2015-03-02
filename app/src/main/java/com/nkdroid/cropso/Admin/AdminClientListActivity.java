@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.nkdroid.cropso.Client.ClientProjectDetailActivity;
 import com.nkdroid.cropso.R;
@@ -28,11 +29,20 @@ public class AdminClientListActivity extends ActionBarActivity {
     private ListView admin_client_list;
     private ClientListAdapter clientListAdapter;
     private ArrayList<String> clientList;
+    private TextView txt_add_client;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_client_list);
         admin_client_list = (ListView) findViewById(R.id.admin_client_list);
+        txt_add_client= (TextView) findViewById(R.id.txt_add_client);
+        txt_add_client.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AdminClientListActivity.this,AddNewClientActivity.class);
+                startActivity(intent);
+            }
+        });
         setActionBar();
         clientList =new ArrayList<>();
         clientList.add("a");

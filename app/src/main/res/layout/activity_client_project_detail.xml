@@ -5,7 +5,9 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
     <include layout="@layout/app_bar" />
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <ScrollView
         android:layout_alignParentTop="true"
         android:layout_above="@+id/txt_project_feedback"
@@ -46,6 +48,19 @@
         android:layout_height="wrap_content" />
 </LinearLayout>
         </ScrollView>
+    <TextView
 
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:background="@color/primaryColor"
+        android:padding="10dp"
+
+        android:gravity="center"
+        android:text="SEND FEEDBACK"
+        android:textSize="@dimen/normal_text"
+        android:id="@+id/txt_project_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
 
 </LinearLayout>

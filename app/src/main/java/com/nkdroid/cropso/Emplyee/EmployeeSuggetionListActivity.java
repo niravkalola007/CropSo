@@ -9,15 +9,14 @@ import android.view.View;
 
 import com.nkdroid.cropso.R;
 
-public class EmployeeTaskDetailActivity extends ActionBarActivity {
+public class EmployeeSuggetionListActivity extends ActionBarActivity {
     private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_employee_task_detail);
+        setContentView(R.layout.activity_employee_suggetion_list);
         setActionBar();
     }
-
 
     private void setActionBar(){
         //Set ActionBar

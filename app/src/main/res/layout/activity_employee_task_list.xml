@@ -3,17 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
-    >
+    tools:context=".LoginActivity">
     <include layout="@layout/app_bar" />
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
     <LinearLayout
-        android:layout_alignParentTop="true"
-        android:layout_above="@+id/txt_add_client"
+
         android:orientation="vertical"
         android:padding="@dimen/normal_margin"
         android:layout_width="match_parent"
@@ -21,25 +14,11 @@
 
 
         <ListView
-
-            android:id="@+id/admin_client_list"
+            android:id="@+id/employee_task_list"
             android:layout_width="match_parent"
             android:divider="@null"
             android:dividerHeight="0dp"
             android:layout_height="match_parent">
         </ListView>
     </LinearLayout>
-    <TextView
-
-    android:layout_alignParentBottom="true"
-    android:textColor="@color/white"
-    android:background="@color/primaryColor"
-    android:padding="10dp"
-    android:gravity="center"
-    android:text="ADD NEW CLIENT"
-    android:textSize="@dimen/normal_text"
-    android:id="@+id/txt_add_client"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
-</RelativeLayout>
-</LinearLayout>
+    </LinearLayout>

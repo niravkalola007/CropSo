@@ -1,4 +1,4 @@
-package com.nkdroid.cropso.Emplyee;
+package com.nkdroid.cropso.Admin;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -9,12 +9,12 @@ import android.view.View;
 
 import com.nkdroid.cropso.R;
 
-public class EmployeeTaskDetailActivity extends ActionBarActivity {
+public class AddNewProjectManager extends ActionBarActivity {
     private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_employee_task_detail);
+        setContentView(R.layout.activity_add_new_project_manager);
         setActionBar();
     }
 
@@ -35,4 +35,5 @@ public class EmployeeTaskDetailActivity extends ActionBarActivity {
         });
 
     }
+
 }

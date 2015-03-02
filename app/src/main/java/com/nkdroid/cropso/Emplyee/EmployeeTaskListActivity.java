@@ -1,4 +1,4 @@
-package com.nkdroid.cropso.Admin;
+package com.nkdroid.cropso.Emplyee;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -10,37 +10,30 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import com.nkdroid.cropso.Client.ClientProjectDetailActivity;
+import com.nkdroid.cropso.Admin.AdminEditableProjectActivity;
+import com.nkdroid.cropso.Admin.AdminProjectDetailActivity;
 import com.nkdroid.cropso.R;
 
 import java.util.ArrayList;
 
-public class AdminProjectListActivity extends ActionBarActivity {
+public class EmployeeTaskListActivity extends ActionBarActivity {
     private Toolbar toolbar;
-    private ListView admin_project_list;
+    private ListView employee_task_list;
     private ProjectListAdapter projectListAdapter;
     private ArrayList<String> projectList;
-    private TextView txt_add_projectmanager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_project_list);
-        admin_project_list = (ListView) findViewById(R.id.admin_project_list);
-        txt_add_projectmanager= (TextView) findViewById(R.id.txt_add_projectmanager);
-        txt_add_projectmanager.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(AdminProjectListActivity.this,AddNewProjectManager.class);
-                startActivity(intent);
-            }
-        });
+        setContentView(R.layout.activity_employee_task_list);
+        employee_task_list= (ListView) findViewById(R.id.employee_task_list);
         setActionBar();
         projectList =new ArrayList<>();
         projectList.add("a");
@@ -49,9 +42,10 @@ public class AdminProjectListActivity extends ActionBarActivity {
         projectList.add("d");
         projectList.add("e");
         projectList.add("f");
-        projectListAdapter = new ProjectListAdapter(AdminProjectListActivity.this, projectList);
-        admin_project_list.setAdapter(projectListAdapter);
+        projectListAdapter = new ProjectListAdapter(EmployeeTaskListActivity.this, projectList);
+        employee_task_list.setAdapter(projectListAdapter);
     }
+
 
     private void setActionBar(){
         //Set ActionBar
@@ -98,7 +92,7 @@ public class AdminProjectListActivity extends ActionBarActivity {
         }
 
         private class ViewHolder {
-            ImageView img_edit,img_delete;
+//            ImageView img_edit,img_delete;
         }
 
         @Override
@@ -109,57 +103,22 @@ public class AdminProjectListActivity extends ActionBarActivity {
 
             if (convertView == null) {
 
-                convertView = mInflater.inflate(R.layout.item_project_edit_delete, parent, false);
+                convertView = mInflater.inflate(R.layout.item_employee_task_list, parent, false);
 
                 holder = new ViewHolder();
-                holder.img_edit= (ImageView) convertView.findViewById(R.id.img_edit);
-                holder.img_delete= (ImageView) convertView.findViewById(R.id.img_delete);
+//                holder.img_edit= (ImageView) convertView.findViewById(R.id.img_edit);
+//                holder.img_delete= (ImageView) convertView.findViewById(R.id.img_delete);
                 convertView.setTag(holder);
 
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-            holder.img_edit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent=new Intent(AdminProjectListActivity.this,AdminEditableProjectActivity.class);
-                    startActivity(intent);
-                }
-            });
 
-            holder.img_delete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AlertDialog.Builder alert = new AlertDialog.Builder(AdminProjectListActivity.this);
-                    alert.setTitle("Delete");
-                    alert.setMessage("Delete this record ?");
-                    alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                            dialog.dismiss();
-
-                        }
-                    });
-
-                    alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
-
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-
-                        }
-                    });
-
-                    alert.show();
-                }
-            });
 
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(AdminProjectListActivity.this,AdminProjectDetailActivity.class);
+                    Intent intent=new Intent(EmployeeTaskListActivity.this,EmployeeTaskDetailActivity.class);
                     startActivity(intent);
                 }
             });
@@ -168,4 +127,5 @@ public class AdminProjectListActivity extends ActionBarActivity {
         }
 
     }
+
 }

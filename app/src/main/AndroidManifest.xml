@@ -105,6 +105,34 @@
             android:name=".Emplyee.EmployeeTaskDetailActivity"
             android:label="@string/title_activity_employee_task_detail" >
         </activity>
+        <activity
+            android:name=".Admin.AddNewClientActivity"
+            android:label="@string/title_activity_add_new_client" >
+        </activity>
+        <activity
+            android:name=".Admin.AddNewProjectManager"
+            android:label="@string/title_activity_add_new_project_manager" >
+        </activity>
+        <activity
+            android:name=".Emplyee.EmployeeTaskListActivity"
+            android:label="@string/title_activity_employee_task_list" >
+        </activity>
+        <activity
+            android:name=".Emplyee.EmployeeNotificationListActivity"
+            android:label="@string/title_activity_employee_notification_list" >
+        </activity>
+        <activity
+            android:name=".Emplyee.EmployeeProjectListActivity"
+            android:label="@string/title_activity_employee_project_list" >
+        </activity>
+        <activity
+            android:name=".Emplyee.EmployeeProjectDetailActivity"
+            android:label="@string/title_activity_employee_project_detail" >
+        </activity>
+        <activity
+            android:name=".Emplyee.EmployeeSuggetionListActivity"
+            android:label="@string/title_activity_employee_suggetion_list" >
+        </activity>
     </application>
 
 </manifest>
