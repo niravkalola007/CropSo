@@ -40,5 +40,11 @@
     <string name="title_activity_project_dashboard">ProjectDashboardActivity</string>
     <string name="title_activity_pm_project_detail">PmProjectDetailActivity</string>
     <string name="title_activity_pm_editable_project_details">PmEditableProjectDetails</string>
+    <string name="title_activity_pm_all_resource_list">PmAllResourceListActivity</string>
+    <string name="title_activity_pm_all_resource_detail">PmAllResourceDetailActivity</string>
+    <string name="title_activity_pm_all_resource_editable_detail">
+        PmAllResourceEditableDetailActivity
+    </string>
+    <string name="title_activity_pm_add_new_all_resource">PmAddNewAllResourceActivity</string>
 
 </resources>

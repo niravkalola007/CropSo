@@ -149,6 +149,22 @@
             android:name=".ProjectManager.PmEditableProjectDetails"
             android:label="@string/title_activity_pm_editable_project_details" >
         </activity>
+        <activity
+            android:name=".ProjectManager.PmAllResourceListActivity"
+            android:label="@string/title_activity_pm_all_resource_list" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmAllResourceDetailActivity"
+            android:label="@string/title_activity_pm_all_resource_detail" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmAllResourceEditableDetailActivity"
+            android:label="@string/title_activity_pm_all_resource_editable_detail" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmAddNewAllResourceActivity"
+            android:label="@string/title_activity_pm_add_new_all_resource" >
+        </activity>
     </application>
 
 </manifest>
