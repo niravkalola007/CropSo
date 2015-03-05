@@ -24,7 +24,7 @@
 
         <TextView
             android:textColor="#494949"
-            android:text="Project Title"
+            android:text="Title"
             android:textSize="@dimen/large_text"
             android:id="@+id/txt_project_title"
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             <TextView
                 android:layout_marginTop="@dimen/small_margin"
                 android:textColor="#494949"
-                android:text="Project Abstract"
+                android:text="data"
                 android:textSize="@dimen/normal_text"
                 android:id="@+id/txt_project_abstract"
                 android:layout_width="match_parent"

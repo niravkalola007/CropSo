@@ -56,7 +56,8 @@ public class PmHomeActivity extends ActionBarActivity {
         txtClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(PmHomeActivity.this, PmAllClientListActivity.class);
+                startActivity(intent);
             }
         });
 
