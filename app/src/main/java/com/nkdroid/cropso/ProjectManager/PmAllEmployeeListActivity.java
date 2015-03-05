@@ -19,14 +19,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.nkdroid.cropso.Admin.AddNewProjectManager;
-import com.nkdroid.cropso.Admin.AdminEditableProjectActivity;
-import com.nkdroid.cropso.Admin.AdminProjectDetailActivity;
 import com.nkdroid.cropso.R;
 
 import java.util.ArrayList;
 
-public class PmAllResourceListActivity extends ActionBarActivity {
+public class PmAllEmployeeListActivity extends ActionBarActivity {
     private Toolbar toolbar;
     private ListView admin_project_list;
     private ProjectListAdapter projectListAdapter;
@@ -35,13 +32,13 @@ public class PmAllResourceListActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pm_all_resource_list);
+        setContentView(R.layout.activity_pm_all_employee_list);
         admin_project_list = (ListView) findViewById(R.id.pm_all_resource_list);
         txt_add_projectmanager= (TextView) findViewById(R.id.txt_add_project);
         txt_add_projectmanager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(PmAllResourceListActivity.this,PmAddNewAllResourceActivity.class);
+                Intent intent=new Intent(PmAllEmployeeListActivity.this,PmAllAddNewEmployee.class);
                 startActivity(intent);
             }
         });
@@ -53,7 +50,7 @@ public class PmAllResourceListActivity extends ActionBarActivity {
         projectList.add("d");
         projectList.add("e");
         projectList.add("f");
-        projectListAdapter = new ProjectListAdapter(PmAllResourceListActivity.this, projectList);
+        projectListAdapter = new ProjectListAdapter(PmAllEmployeeListActivity.this, projectList);
         admin_project_list.setAdapter(projectListAdapter);
     }
 
@@ -126,7 +123,7 @@ public class PmAllResourceListActivity extends ActionBarActivity {
             holder.img_edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(PmAllResourceListActivity.this,PmAllResourceEditableDetailActivity.class);
+                    Intent intent=new Intent(PmAllEmployeeListActivity.this,PmAllResourceEditableDetailActivity.class);
                     startActivity(intent);
                 }
             });
@@ -134,7 +131,7 @@ public class PmAllResourceListActivity extends ActionBarActivity {
             holder.img_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    AlertDialog.Builder alert = new AlertDialog.Builder(PmAllResourceListActivity.this);
+                    AlertDialog.Builder alert = new AlertDialog.Builder(PmAllEmployeeListActivity.this);
                     alert.setTitle("Delete");
                     alert.setMessage("Delete this record ?");
                     alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -163,7 +160,7 @@ public class PmAllResourceListActivity extends ActionBarActivity {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(PmAllResourceListActivity.this,PmAllResourceDetailActivity.class);
+                    Intent intent=new Intent(PmAllEmployeeListActivity.this,PmAllEmployeeDetailActivity.class);
                     startActivity(intent);
                 }
             });

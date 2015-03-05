@@ -46,5 +46,14 @@
         PmAllResourceEditableDetailActivity
     </string>
     <string name="title_activity_pm_add_new_all_resource">PmAddNewAllResourceActivity</string>
+    <string name="title_activity_pm_add_new_resource">PmAddNewResourceActivity</string>
+    <string name="title_activity_pm_all_notification_list">PmAllNotificationList</string>
+    <string name="title_activity_pm_all_employee_list">PmAllEmployeeListActivity</string>
+    <string name="title_activity_pm_all_employee_detail">PmAllEmployeeDetailActivity</string>
+    <string name="title_activity_pm_all_add_new_employee">PmAllAddNewEmployee</string>
+    <string name="title_activity_pm_all_employee_editable_detail">PmAllEmployeeEditableDetail
+    </string>
+    <string name="title_activity_pm_all_client_list">PmAllClientListActivity</string>
+    <string name="title_activity_pm_all_client_detail">PmAllClientDetailActivity</string>
 
 </resources>

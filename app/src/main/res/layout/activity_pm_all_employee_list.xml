@@ -35,7 +35,7 @@
             android:padding="10dp"
 
             android:gravity="center"
-            android:text="ADD NEW RESOURCE"
+            android:text="ADD NEW EMPLOYEE"
             android:textSize="@dimen/normal_text"
             android:id="@+id/txt_add_project"
             android:layout_width="match_parent"

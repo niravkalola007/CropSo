@@ -17,6 +17,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/txtProjects"
                 android:text="Projects"
                 android:gravity="center"
                 android:textSize="@dimen/large_text"
@@ -26,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/txtEmployee"
                 android:layout_marginTop="8dp"
                 android:text="Employees"
                 android:gravity="center"
@@ -36,6 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/txtClient"
                 android:layout_marginTop="8dp"
                 android:text="Clients"
                 android:gravity="center"
@@ -46,6 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/txtNotifications"
                 android:layout_marginTop="8dp"
                 android:text="Notifications"
                 android:gravity="center"
@@ -56,12 +60,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
+                android:id="@+id/txtResources"
                 android:layout_marginTop="8dp"
                 android:text="Resources"
                 android:gravity="center"
                 android:textSize="@dimen/large_text"
                 android:textColor="@color/white"
                 android:background="#FF9800"
+                android:padding="@dimen/extra_large_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtReports"
+                android:layout_marginTop="8dp"
+                android:text="Reports"
+                android:gravity="center"
+                android:textSize="@dimen/large_text"
+                android:textColor="@color/white"
+                android:background="@color/primaryColor"
                 android:padding="@dimen/extra_large_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

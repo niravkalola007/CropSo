@@ -9,16 +9,16 @@ import android.view.View;
 
 import com.nkdroid.cropso.R;
 
-public class PmAllResourceEditableDetailActivity extends ActionBarActivity {
+public class PmAllEmployeeEditableDetail extends ActionBarActivity {
     private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pm_all_resource_editable_detail);
+        setContentView(R.layout.activity_pm_all_employee_editable_detail);
         setActionBar();
     }
 
-    private void setActionBar(){
+    private void setActionBar() {
         //Set ActionBar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
@@ -34,4 +34,4 @@ public class PmAllResourceEditableDetailActivity extends ActionBarActivity {
         });
 
     }
-}
+    }

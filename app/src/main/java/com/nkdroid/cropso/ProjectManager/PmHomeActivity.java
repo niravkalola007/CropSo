@@ -6,17 +6,67 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.nkdroid.cropso.LoginActivity;
 import com.nkdroid.cropso.R;
 
 public class PmHomeActivity extends ActionBarActivity {
     private Toolbar toolbar;
+    private TextView txtResources,txtNotifications,txtProjects,txtEmployee,txtClient,txtReports;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pm_home);
         setActionBar();
+        txtResources= (TextView) findViewById(R.id.txtResources);
+        txtResources.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(PmHomeActivity.this, PmAllResourceListActivity.class);
+                startActivity(intent);
+            }
+        });
+        txtNotifications= (TextView) findViewById(R.id.txtNotifications);
+        txtNotifications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(PmHomeActivity.this, PmAllNotificationList.class);
+                startActivity(intent);
+            }
+        });
+        txtProjects= (TextView) findViewById(R.id.txtProjects);
+        txtProjects.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        txtEmployee= (TextView) findViewById(R.id.txtEmployee);
+        txtEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(PmHomeActivity.this, PmAllEmployeeListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        txtClient= (TextView) findViewById(R.id.txtClient);
+        txtClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        txtReports= (TextView) findViewById(R.id.txtReports);
+        txtReports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void setActionBar(){

@@ -9,14 +9,15 @@ import android.view.View;
 
 import com.nkdroid.cropso.R;
 
-public class PmAllResourceEditableDetailActivity extends ActionBarActivity {
+public class PmAllEmployeeDetailActivity extends ActionBarActivity {
     private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pm_all_resource_editable_detail);
+        setContentView(R.layout.activity_pm_all_employee_detail);
         setActionBar();
     }
+
 
     private void setActionBar(){
         //Set ActionBar

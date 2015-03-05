@@ -91,7 +91,7 @@
             android:padding="10dp"
 
             android:gravity="center"
-            android:text="ADD RESOURCE"
+            android:text="ADD EMPLOYEE"
             android:textSize="@dimen/normal_text"
             android:id="@+id/txt_project_manager"
             android:layout_width="match_parent"

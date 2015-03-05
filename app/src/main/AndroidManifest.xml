@@ -165,6 +165,34 @@
             android:name=".ProjectManager.PmAddNewAllResourceActivity"
             android:label="@string/title_activity_pm_add_new_all_resource" >
         </activity>
+        <activity
+            android:name=".ProjectManager.PmAllNotificationList"
+            android:label="@string/title_activity_pm_all_notification_list" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmAllEmployeeListActivity"
+            android:label="@string/title_activity_pm_all_employee_list" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmAllEmployeeDetailActivity"
+            android:label="@string/title_activity_pm_all_employee_detail" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmAllAddNewEmployee"
+            android:label="@string/title_activity_pm_all_add_new_employee" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmAllEmployeeEditableDetail"
+            android:label="@string/title_activity_pm_all_employee_editable_detail" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmAllClientListActivity"
+            android:label="@string/title_activity_pm_all_client_list" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmAllClientDetailActivity"
+            android:label="@string/title_activity_pm_all_client_detail" >
+        </activity>
     </application>
 
 </manifest>
