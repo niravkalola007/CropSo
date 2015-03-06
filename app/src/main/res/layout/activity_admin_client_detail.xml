@@ -6,6 +6,8 @@
     tools:context=".LoginActivity">
     <include layout="@layout/app_bar" />
 
+
+
     <ScrollView
         android:layout_alignParentTop="true"
         android:layout_above="@+id/txt_project_feedback"
@@ -38,6 +40,5 @@
 
         </LinearLayout>
     </ScrollView>
-
 
 </LinearLayout>

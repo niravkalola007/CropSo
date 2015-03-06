@@ -1,6 +1,7 @@
 package com.nkdroid.cropso;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -28,11 +29,34 @@ import android.widget.Toast;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.nkdroid.cropso.Admin.AdminHomeActivity;
 import com.nkdroid.cropso.Client.ClientHomeActivity;
+import com.nkdroid.cropso.Custom.AppConstants;
 import com.nkdroid.cropso.Emplyee.EmployeeHomeActivity;
 import com.nkdroid.cropso.ProjectManager.PmHomeActivity;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.utils.URLEncodedUtils;
+import org.apache.http.conn.ConnectTimeoutException;
+import org.apache.http.conn.HttpHostConnectException;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 
@@ -46,6 +70,11 @@ public class LoginActivity extends ActionBarActivity {
     private String regid;
     private String PROJECT_NUMBER = "92884720384";
     ArrayList<String> userTypeList;
+    private ProgressDialog progressDialog;
+    private String method = "POST";
+    private String LOGIN_SERVICE = AppConstants.LOGIN;
+    private InputStream is = null;
+    private String json = "",regId="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +95,30 @@ public class LoginActivity extends ActionBarActivity {
 
         UserTypeAdapter userTypeAdapter=new UserTypeAdapter(LoginActivity.this,R.layout.temp_item_row,userTypeList);
         spinnerUserType.setAdapter(userTypeAdapter);
+
+        SharedPreferences sharedPreferencesLogin=getSharedPreferences("LOGIN",MODE_PRIVATE);
+
+        boolean isLogin=sharedPreferencesLogin.getBoolean("LOGIN",false);
+        int position=sharedPreferencesLogin.getInt("POSITION",0);
+        if(isLogin){
+            if(position==1){
+                Intent i = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                startActivity(i);
+                finish();
+            }else if(position==2){
+                Intent i = new Intent(LoginActivity.this, ClientHomeActivity.class);
+                startActivity(i);
+                finish();
+            } else if(position==3){
+                Intent i = new Intent(LoginActivity.this, PmHomeActivity.class);
+                startActivity(i);
+                finish();
+            } else if(position==4){
+                Intent i = new Intent(LoginActivity.this, EmployeeHomeActivity.class);
+                startActivity(i);
+                finish();
+            }
+        }
 
         txtLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,13 +274,122 @@ public class LoginActivity extends ActionBarActivity {
                         });
                         alert.show();
                     } else {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                callLoginService();
+                            }
+                        });
 
-                        //TODO post web service
+
+
+
+                    }
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                return null;
+            }
+        }.execute();
+
+    } // end of getRegId
+
+    private void callLoginService() {
+
+        new AsyncTask<Void,Void,Void>(){
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                progressDialog=new ProgressDialog(LoginActivity.this);
+                progressDialog.setMessage("Login...");
+                progressDialog.show();
+            }
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    // Making HTTP request
+                    // check for request method
+                    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+
+                    nameValuePairs.add(new BasicNameValuePair("username",etEmail.getText().toString().trim()+""));
+                    nameValuePairs.add(new BasicNameValuePair("password",etPassword.getText().toString().trim()+""));
+                    nameValuePairs.add(new BasicNameValuePair("registration_type",userTypeList.get(spinnerUserType.getSelectedItemPosition())+""));
+
+                    if (method.equals("POST")) {
+                        // request method is POST
+                        // defaultHttpClient
+                        DefaultHttpClient httpClient = new DefaultHttpClient();
+                        HttpPost httpPost = new HttpPost(LOGIN_SERVICE);
+                        httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                        HttpResponse httpResponse = httpClient.execute(httpPost);
+                        HttpEntity httpEntity = httpResponse.getEntity();
+                        is = httpEntity.getContent();
+
+                    } else if (method == "GET") {
+                        // request method is GET
+                        DefaultHttpClient httpClient = new DefaultHttpClient();
+                        String paramString = URLEncodedUtils.format(nameValuePairs, "utf-8");
+                        LOGIN_SERVICE += "?" + paramString;
+                        HttpGet httpGet = new HttpGet(LOGIN_SERVICE);
+                        HttpResponse httpResponse = httpClient.execute(httpGet);
+                        HttpEntity httpEntity = httpResponse.getEntity();
+                        is = httpEntity.getContent();
+                    }
+
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
+                    StringBuilder sb = new StringBuilder();
+                    String line = null;
+                    while ((line = reader.readLine()) != null) {
+                        sb.append(line);
+                    }
+                    is.close();
+                    json = sb.toString();
+                    Log.e("response msg===> ", json.toString());
+
+
+                } catch (HttpHostConnectException e) {
+                    e.printStackTrace();
+                    Log.e("Exception in doInBackground - Contact Us===> ",e.toString());
+                } catch (SocketException e) {
+                    e.printStackTrace();
+                    Log.e("Exception in doInBackground - Contact Us===> ",e.toString());
+                } catch (UnknownHostException e) {
+                    e.printStackTrace();
+                    Log.e("Exception in doInBackground - Contact Us===> ",e.toString());
+                } catch (SocketTimeoutException e) {
+                    e.printStackTrace();
+                    Log.e("Exception in doInBackground - Contact Us===> ",e.toString());
+                } catch (ConnectTimeoutException e) {
+                    e.printStackTrace();
+                    Log.e("Exception in doInBackground - Contact Us===> ",e.toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.e("Exception in doInBackground - Contact Us===> ",e.toString());
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                progressDialog.dismiss();
+                try {
+                    JSONObject jsonObject = new JSONObject(json);
+                    JSONObject jsonObjectInner = new JSONObject(jsonObject.getString("result"));
+                    String response=jsonObjectInner.getString("message");
+                    if(response.equalsIgnoreCase("success")){
                         // Store GCM ID in sharedpreference
                         SharedPreferences sharedPreferences=getSharedPreferences("GCM",MODE_PRIVATE);
                         SharedPreferences.Editor editor=sharedPreferences.edit();
                         editor.putString("GCM_ID",regid);
                         editor.commit();
+                        SharedPreferences sharedPreferencesLogin=getSharedPreferences("LOGIN",MODE_PRIVATE);
+                        SharedPreferences.Editor editorLogin=sharedPreferencesLogin.edit();
+                        editorLogin.putBoolean("LOGIN",true);
+                        editorLogin.putInt("POSITION",spinnerUserType.getSelectedItemPosition());
+                        editorLogin.commit();
                         if(spinnerUserType.getSelectedItemPosition()==1){
                             Intent i = new Intent(LoginActivity.this, AdminHomeActivity.class);
                             startActivity(i);
@@ -245,14 +407,13 @@ public class LoginActivity extends ActionBarActivity {
                             startActivity(i);
                             finish();
                         }
-
+                    } else {
+                        Toast.makeText(LoginActivity.this,"Please Enter Valid Username or Password",Toast.LENGTH_LONG).show();
                     }
-                } catch (IOException ex) {
-                    ex.printStackTrace();
+                } catch (JSONException e){
+                    e.printStackTrace();
                 }
-                return null;
             }
         }.execute();
-
-    } // end of getRegId
+    }
 }

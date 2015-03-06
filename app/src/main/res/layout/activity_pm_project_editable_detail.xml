@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+    <include layout="@layout/app_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/txt_project_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:padding="@dimen/normal_margin"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <EditText
+                    android:gravity="center"
+                    android:textColor="#494949"
+                    android:text="Project Manager Title"
+                    android:textSize="@dimen/large_text"
+                    android:id="@+id/txt_project_detail_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:layout_marginTop="8dp"
+                    android:textColor="#494949"
+                    android:text="Description: Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
+                    android:textSize="@dimen/normal_text"
+                    android:id="@+id/txt_project_detail_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </ScrollView>
+        <TextView
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/white"
+            android:background="@color/primaryColor"
+            android:padding="10dp"
+
+            android:gravity="center"
+            android:text="EDIT"
+            android:textSize="@dimen/normal_text"
+            android:id="@+id/txt_edit_project"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>

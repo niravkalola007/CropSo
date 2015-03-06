@@ -55,5 +55,8 @@
     </string>
     <string name="title_activity_pm_all_client_list">PmAllClientListActivity</string>
     <string name="title_activity_pm_all_client_detail">PmAllClientDetailActivity</string>
+    <string name="title_activity_pm_project_list">PmProjectListActivity</string>
+    <string name="title_activity_pm_project_editable_detail">PmProjectEditableDetailActivity
+    </string>
 
 </resources>

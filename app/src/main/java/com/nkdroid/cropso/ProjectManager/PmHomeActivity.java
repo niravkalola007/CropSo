@@ -1,6 +1,7 @@
 package com.nkdroid.cropso.ProjectManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -40,7 +41,8 @@ public class PmHomeActivity extends ActionBarActivity {
         txtProjects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(PmHomeActivity.this, PmProjectListActivity.class);
+                startActivity(intent);
             }
         });
         txtEmployee= (TextView) findViewById(R.id.txtEmployee);
@@ -95,6 +97,11 @@ public class PmHomeActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
+            SharedPreferences sharedPreferencesLogin=getSharedPreferences("LOGIN",MODE_PRIVATE);
+            SharedPreferences.Editor editorLogin=sharedPreferencesLogin.edit();
+            editorLogin.putBoolean("LOGIN",false);
+            editorLogin.putInt("POSITION",0);
+            editorLogin.commit();
             Intent intent=new Intent(PmHomeActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();

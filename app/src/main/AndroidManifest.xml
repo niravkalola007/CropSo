@@ -70,159 +70,162 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Client.ClientProjectDetailActivity"
-            android:label="@string/title_activity_client_project_detail" >
+            android:label="@string/title_activity_client_project_detail"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Client.ClientFeddBackActivity"
-            android:label="@string/title_activity_client_fedd_back" >
+            android:label="@string/title_activity_client_fedd_back"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Admin.AdminProjectListActivity"
-            android:label="@string/title_activity_admin_project_list" >
+            android:label="@string/title_activity_admin_project_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Admin.AdminClientListActivity"
-            android:label="@string/title_activity_admin_client_list" >
+            android:label="@string/title_activity_admin_client_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Admin.AdminClientDetailActivity"
-            android:label="@string/title_activity_admin_client_detail" >
+            android:label="@string/title_activity_admin_client_detail"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Admin.AdminProjectDetailActivity"
-            android:label="@string/title_activity_admin_project_detail" >
+            android:label="@string/title_activity_admin_project_detail"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Admin.AdminEditableProjectActivity"
-            android:label="@string/title_activity_admin_editable_project" >
+            android:label="@string/title_activity_admin_editable_project"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Admin.AdminEditableClientActivity"
-            android:label="@string/title_activity_admin_editable_client" >
+            android:label="@string/title_activity_admin_editable_client"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Emplyee.EmployeeTaskDetailActivity"
-            android:label="@string/title_activity_employee_task_detail" >
+            android:label="@string/title_activity_employee_task_detail"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Admin.AddNewClientActivity"
-            android:label="@string/title_activity_add_new_client" >
+            android:label="@string/title_activity_add_new_client"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Admin.AddNewProjectManager"
-            android:label="@string/title_activity_add_new_project_manager" >
+            android:label="@string/title_activity_add_new_project_manager"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Emplyee.EmployeeTaskListActivity"
-            android:label="@string/title_activity_employee_task_list" >
+            android:label="@string/title_activity_employee_task_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Emplyee.EmployeeNotificationListActivity"
-            android:label="@string/title_activity_employee_notification_list" >
+            android:label="@string/title_activity_employee_notification_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Emplyee.EmployeeProjectListActivity"
-            android:label="@string/title_activity_employee_project_list" >
+            android:label="@string/title_activity_employee_project_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Emplyee.EmployeeProjectDetailActivity"
-            android:label="@string/title_activity_employee_project_detail" >
+            android:label="@string/title_activity_employee_project_detail"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".Emplyee.EmployeeSuggetionListActivity"
-            android:label="@string/title_activity_employee_suggetion_list" >
+            android:label="@string/title_activity_employee_suggetion_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.ProjectListActivity"
-            android:label="@string/title_activity_project_list" >
+            android:label="@string/title_activity_project_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.ProjectDashboardActivity"
-            android:label="@string/title_activity_project_dashboard" >
+            android:label="@string/title_activity_project_dashboard"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.PmProjectDetailActivity"
-            android:label="@string/title_activity_pm_project_detail" >
+            android:label="@string/title_activity_pm_project_detail"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
-            android:name=".ProjectManager.PmEditableProjectDetails"
-            android:label="@string/title_activity_pm_editable_project_details" >
-        </activity>
-        <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.PmAllResourceListActivity"
-            android:label="@string/title_activity_pm_all_resource_list" >
+            android:label="@string/title_activity_pm_all_resource_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.PmAllResourceDetailActivity"
-            android:label="@string/title_activity_pm_all_resource_detail" >
+            android:label="@string/title_activity_pm_all_resource_detail"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.PmAllResourceEditableDetailActivity"
-            android:label="@string/title_activity_pm_all_resource_editable_detail" >
+            android:label="@string/title_activity_pm_all_resource_editable_detail"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.PmAddNewAllResourceActivity"
-            android:label="@string/title_activity_pm_add_new_all_resource" >
+            android:label="@string/title_activity_pm_add_new_all_resource"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.PmAllNotificationList"
-            android:label="@string/title_activity_pm_all_notification_list" >
+            android:label="@string/title_activity_pm_all_notification_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.PmAllEmployeeListActivity"
-            android:label="@string/title_activity_pm_all_employee_list" >
+            android:label="@string/title_activity_pm_all_employee_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.PmAllEmployeeDetailActivity"
-            android:label="@string/title_activity_pm_all_employee_detail" >
+            android:label="@string/title_activity_pm_all_employee_detail"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.PmAllAddNewEmployee"
-            android:label="@string/title_activity_pm_all_add_new_employee" >
+            android:label="@string/title_activity_pm_all_add_new_employee"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.PmAllEmployeeEditableDetail"
-            android:label="@string/title_activity_pm_all_employee_editable_detail" >
+            android:label="@string/title_activity_pm_all_employee_editable_detail"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.PmAllClientListActivity"
-            android:label="@string/title_activity_pm_all_client_list" >
+            android:label="@string/title_activity_pm_all_client_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".ProjectManager.PmAllClientDetailActivity"
-            android:label="@string/title_activity_pm_all_client_detail" >
+            android:label="@string/title_activity_pm_all_client_detail"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmProjectListActivity"
+            android:label="@string/title_activity_pm_project_list" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmProjectEditableDetailActivity"
+            android:label="@string/title_activity_pm_project_editable_detail" >
         </activity>
     </application>
 
