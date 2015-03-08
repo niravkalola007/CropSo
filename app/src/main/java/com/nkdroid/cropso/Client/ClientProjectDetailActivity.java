@@ -9,11 +9,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.github.lzyzsd.circleprogress.DonutProgress;
 import com.nkdroid.cropso.R;
+import com.nkdroid.cropso.model.PrefUtils;
+import com.nkdroid.cropso.model.Project;
 
 public class ClientProjectDetailActivity extends ActionBarActivity {
     private Toolbar toolbar;
     private TextView txt_project_feedback;
+    private DonutProgress donut_progress;
+    private TextView endDate,startDate,txtAbstract,txtModules,txtFunctions,txtLanguages,txtFrontEnd,txtBackEnd;
+    private Project project;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +32,26 @@ public class ClientProjectDetailActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+        project= PrefUtils.getProject(ClientProjectDetailActivity.this);
+        donut_progress= (DonutProgress) findViewById(R.id.donut_progress);
+        endDate= (TextView) findViewById(R.id.endDate);
+        startDate= (TextView) findViewById(R.id.startDate);
+        txtAbstract= (TextView) findViewById(R.id.txtAbstract);
+        txtModules= (TextView) findViewById(R.id.txtModules);
+        txtFunctions= (TextView) findViewById(R.id.txtFunctions);
+        txtLanguages= (TextView) findViewById(R.id.txtLanguages);
+        txtFrontEnd= (TextView) findViewById(R.id.txtFrontEnd);
+        txtBackEnd= (TextView) findViewById(R.id.txtBackEnd);
+        donut_progress.setProgress(Integer.parseInt(project.progress));
+        endDate.setText(project.deadline_date);
+        startDate.setText(project.start_date);
+        txtAbstract.setText(project.abstractvalue);
+        txtModules.setText(project.modules);
+        txtFunctions.setText(project.functions);
+        txtLanguages.setText(project.programming_languages);
+        txtFrontEnd.setText(project.front_end);
+        txtBackEnd.setText(project.back_end);
+
         setActionBar();
     }
 
@@ -34,7 +60,7 @@ public class ClientProjectDetailActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             toolbar.setNavigationIcon(R.drawable.ic_launcher);
-            toolbar.setTitle("CropSo");
+            toolbar.setTitle(project.name);
             setSupportActionBar(toolbar);
         }
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {

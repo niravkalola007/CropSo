@@ -27,11 +27,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.google.gson.GsonBuilder;
 import com.nkdroid.cropso.Admin.AdminHomeActivity;
 import com.nkdroid.cropso.Client.ClientHomeActivity;
+import com.nkdroid.cropso.Client.ClientMainActivity;
 import com.nkdroid.cropso.Custom.AppConstants;
 import com.nkdroid.cropso.Emplyee.EmployeeHomeActivity;
 import com.nkdroid.cropso.ProjectManager.PmHomeActivity;
+import com.nkdroid.cropso.model.PrefUtils;
+import com.nkdroid.cropso.model.User;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -68,7 +72,7 @@ public class LoginActivity extends ActionBarActivity {
     private TextView txtLogin;
     private GoogleCloudMessaging gcm;
     private String regid;
-    private String PROJECT_NUMBER = "92884720384";
+    private String PROJECT_NUMBER = "837422643092";
     ArrayList<String> userTypeList;
     private ProgressDialog progressDialog;
     private String method = "POST";
@@ -106,7 +110,7 @@ public class LoginActivity extends ActionBarActivity {
                 startActivity(i);
                 finish();
             }else if(position==2){
-                Intent i = new Intent(LoginActivity.this, ClientHomeActivity.class);
+                Intent i = new Intent(LoginActivity.this, ClientMainActivity.class);
                 startActivity(i);
                 finish();
             } else if(position==3){
@@ -246,6 +250,14 @@ public class LoginActivity extends ActionBarActivity {
 
         new AsyncTask<Void, Void, Void>() {
             @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                progressDialog=new ProgressDialog(LoginActivity.this);
+                progressDialog.setMessage("Login...");
+                progressDialog.show();
+            }
+
+            @Override
             protected Void doInBackground(Void... params) {
                 try {
                     if (gcm == null) {
@@ -280,10 +292,6 @@ public class LoginActivity extends ActionBarActivity {
                                 callLoginService();
                             }
                         });
-
-
-
-
                     }
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -300,9 +308,7 @@ public class LoginActivity extends ActionBarActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                progressDialog=new ProgressDialog(LoginActivity.this);
-                progressDialog.setMessage("Login...");
-                progressDialog.show();
+
             }
 
             @Override
@@ -315,6 +321,7 @@ public class LoginActivity extends ActionBarActivity {
                     nameValuePairs.add(new BasicNameValuePair("username",etEmail.getText().toString().trim()+""));
                     nameValuePairs.add(new BasicNameValuePair("password",etPassword.getText().toString().trim()+""));
                     nameValuePairs.add(new BasicNameValuePair("registration_type",userTypeList.get(spinnerUserType.getSelectedItemPosition())+""));
+                    nameValuePairs.add(new BasicNameValuePair("notification_id",regid+""));
 
                     if (method.equals("POST")) {
                         // request method is POST
@@ -350,22 +357,16 @@ public class LoginActivity extends ActionBarActivity {
 
                 } catch (HttpHostConnectException e) {
                     e.printStackTrace();
-                    Log.e("Exception in doInBackground - Contact Us===> ",e.toString());
                 } catch (SocketException e) {
                     e.printStackTrace();
-                    Log.e("Exception in doInBackground - Contact Us===> ",e.toString());
                 } catch (UnknownHostException e) {
                     e.printStackTrace();
-                    Log.e("Exception in doInBackground - Contact Us===> ",e.toString());
                 } catch (SocketTimeoutException e) {
                     e.printStackTrace();
-                    Log.e("Exception in doInBackground - Contact Us===> ",e.toString());
                 } catch (ConnectTimeoutException e) {
                     e.printStackTrace();
-                    Log.e("Exception in doInBackground - Contact Us===> ",e.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Log.e("Exception in doInBackground - Contact Us===> ",e.toString());
                 }
 
                 return null;
@@ -378,6 +379,8 @@ public class LoginActivity extends ActionBarActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(json);
                     JSONObject jsonObjectInner = new JSONObject(jsonObject.getString("result"));
+                    User user = new GsonBuilder().create().fromJson(jsonObjectInner.toString(), User.class);
+                    PrefUtils.setUser(LoginActivity.this,user);
                     String response=jsonObjectInner.getString("message");
                     if(response.equalsIgnoreCase("success")){
                         // Store GCM ID in sharedpreference
@@ -395,7 +398,7 @@ public class LoginActivity extends ActionBarActivity {
                             startActivity(i);
                             finish();
                         }else if(spinnerUserType.getSelectedItemPosition()==2){
-                            Intent i = new Intent(LoginActivity.this, ClientHomeActivity.class);
+                            Intent i = new Intent(LoginActivity.this, ClientMainActivity.class);
                             startActivity(i);
                             finish();
                         } else if(spinnerUserType.getSelectedItemPosition()==3){

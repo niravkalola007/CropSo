@@ -58,5 +58,7 @@
     <string name="title_activity_pm_project_list">PmProjectListActivity</string>
     <string name="title_activity_pm_project_editable_detail">PmProjectEditableDetailActivity
     </string>
+    <string name="title_activity_client_main">ClientMainActivity</string>
+    <string name="title_activity_client_notifications">ClientNotificationsActivity</string>
 
 </resources>

@@ -3,31 +3,27 @@ package com.nkdroid.cropso.Client;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.gson.GsonBuilder;
 import com.nkdroid.cropso.Custom.AppConstants;
-import com.nkdroid.cropso.LoginActivity;
 import com.nkdroid.cropso.R;
+import com.nkdroid.cropso.model.Notification;
 import com.nkdroid.cropso.model.NotificationList;
 import com.nkdroid.cropso.model.PrefUtils;
-import com.nkdroid.cropso.model.Project;
-import com.nkdroid.cropso.model.ProjectList;
 import com.nkdroid.cropso.model.User;
 
 import org.apache.http.HttpEntity;
@@ -42,34 +38,35 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class ClientHomeActivity extends ActionBarActivity {
-    private Toolbar toolbar;
-    private ListView client_project_list;
+public class ClientNotificationsActivity extends ActionBarActivity {
+    private ListView employee_notification_list;
     private ProjectListAdapter projectListAdapter;
-    private ArrayList<Project> projectList;
+    private NotificationList notificationListClass;
+    private ArrayList<Notification> notificationList;
+    private Toolbar toolbar;
     private static InputStream is = null;
     private int code;
     private String json = null;
     private ProgressDialog progressDialog;
-    private Project project;
-    ProjectList projectListClass;
     private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_client_home);
-        client_project_list= (ListView) findViewById(R.id.client_project_list);
-        user=PrefUtils.getUser(ClientHomeActivity.this);
+        setContentView(R.layout.activity_client_notifications);
+        employee_notification_list= (ListView) findViewById(R.id.employee_notification_list);
         setActionBar();
-        getProjectList();
 
+
+        user= PrefUtils.getUser(ClientNotificationsActivity.this);
+        getNotificationList();
     }
+
     private void setActionBar(){
         //Set ActionBar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             toolbar.setNavigationIcon(R.drawable.ic_launcher);
-            toolbar.setTitle("Online Shopping Cart");
+            toolbar.setTitle("Notifications");
             setSupportActionBar(toolbar);
         }
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -80,16 +77,14 @@ public class ClientHomeActivity extends ActionBarActivity {
         });
 
     }
-
-
     private class ProjectListAdapter extends BaseAdapter {
 
-        private ArrayList<Project> redeemList;
+        private ArrayList<Notification> redeemList;
         private Context context;
         private LayoutInflater mInflater;
         private ViewHolder holder;
 
-        public ProjectListAdapter(FragmentActivity activity, ArrayList<Project> redeemGiftCodesList) {
+        public ProjectListAdapter(FragmentActivity activity, ArrayList<Notification> redeemGiftCodesList) {
             this.context = activity;
             this.redeemList = redeemGiftCodesList;
         }
@@ -111,53 +106,44 @@ public class ClientHomeActivity extends ActionBarActivity {
         }
 
         private class ViewHolder {
-            TextView txtProjectTile,txtSrartDate,txtEndDate;
+              TextView txtNotificationTitle,txtNotificationDate,txtNotificationMessage;
         }
 
         @Override
-        public View getView(final int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent) {
 
 
             mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 
             if (convertView == null) {
 
-                convertView = mInflater.inflate(R.layout.item_project_list, parent, false);
+                convertView = mInflater.inflate(R.layout.item_employee_notification_list, parent, false);
 
                 holder = new ViewHolder();
-                holder.txtProjectTile= (TextView)convertView. findViewById(R.id.txtProjectTile);
-                holder.txtSrartDate= (TextView)convertView. findViewById(R.id.txtSrartDate);
-                holder.txtEndDate= (TextView)convertView. findViewById(R.id.txtEndDate);
-
+                holder.txtNotificationTitle= (TextView) convertView.findViewById(R.id.txtNotificationTitle);
+                holder.txtNotificationDate= (TextView) convertView.findViewById(R.id.txtNotificationDate);
+                holder.txtNotificationMessage= (TextView) convertView.findViewById(R.id.txtNotificationMessage);
                 convertView.setTag(holder);
 
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-            holder.txtProjectTile.setText(redeemList.get(position).name);
-            holder.txtSrartDate.setText("Start Date: "+redeemList.get(position).start_date);
-            holder.txtEndDate.setText("End Date: "+redeemList.get(position).deadline_date);
-            convertView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    PrefUtils.setProject(ClientHomeActivity.this,redeemList.get(position));
-                    Intent intent=new Intent(ClientHomeActivity.this,ClientProjectDetailActivity.class);
-                    startActivity(intent);
-                }
-            });
 
+            holder.txtNotificationTitle.setText(redeemList.get(position).title);
+            holder.txtNotificationDate.setText(redeemList.get(position).created_date);
+            holder.txtNotificationMessage.setText(redeemList.get(position).message);
             return convertView;
         }
 
     }
 
-    private void getProjectList() {
+    private void getNotificationList() {
 
         new AsyncTask<Void,Void,Void>(){
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                progressDialog=new ProgressDialog(ClientHomeActivity.this);
+                progressDialog=new ProgressDialog(ClientNotificationsActivity.this);
                 progressDialog.setCancelable(true);
                 progressDialog.setMessage("Fetching notifications...");
                 progressDialog.show();
@@ -166,11 +152,10 @@ public class ClientHomeActivity extends ActionBarActivity {
             @Override
             protected Void doInBackground(Void... params) {
 
-                String response=getJsonStringfromUrl(AppConstants.CLIENT_PROJECTS+user.id);
+                String response=getJsonStringfromUrl(AppConstants.NOTIFICATIONS+user.id);
 
-                projectListClass=new GsonBuilder().create().fromJson(response,ProjectList.class);
-
-                projectList=projectListClass.projectList;
+                notificationListClass=new GsonBuilder().create().fromJson(response,NotificationList.class);
+                notificationList=notificationListClass.notificationList;
 
 
                 return null;
@@ -181,8 +166,8 @@ public class ClientHomeActivity extends ActionBarActivity {
                 super.onPostExecute(aVoid);
                 progressDialog.dismiss();
 
-                projectListAdapter = new ProjectListAdapter(ClientHomeActivity.this, projectList);
-                client_project_list.setAdapter(projectListAdapter);
+                projectListAdapter = new ProjectListAdapter(ClientNotificationsActivity.this, notificationList);
+                employee_notification_list.setAdapter(projectListAdapter);
 
             }
         }.execute();

@@ -28,7 +28,7 @@
                 android:textColor="#494949"
                 android:text="Title"
                 android:textSize="@dimen/large_text"
-                android:id="@+id/txt_project_title"
+                android:id="@+id/txtName"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content" />

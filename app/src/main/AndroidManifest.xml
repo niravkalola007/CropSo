@@ -77,7 +77,8 @@
         <activity
             android:name=".Client.ClientFeddBackActivity"
             android:label="@string/title_activity_client_fedd_back"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing" >
         </activity>
         <activity
             android:name=".Admin.AdminProjectListActivity"
@@ -221,11 +222,23 @@
         </activity>
         <activity
             android:name=".ProjectManager.PmProjectListActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_pm_project_list" >
         </activity>
         <activity
             android:name=".ProjectManager.PmProjectEditableDetailActivity"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_pm_project_editable_detail" >
+        </activity>
+        <activity
+            android:name=".Client.ClientMainActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_client_main" >
+        </activity>
+        <activity
+            android:name=".Client.ClientNotificationsActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_client_notifications" >
         </activity>
     </application>
 

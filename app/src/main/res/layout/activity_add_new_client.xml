@@ -49,20 +49,13 @@
             <EditText
                 android:id="@+id/etPassword"
                 android:textSize="18sp"
-                android:inputType="textPassword|numberPassword"
+
                 android:textColor="#494949"
                 android:hint="Enter Password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/etAddress"
-                android:textSize="18sp"
-                android:textColor="#494949"
-                android:minLines="3"
-                android:hint="Enter Address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+
 
             <EditText
                 android:id="@+id/etMobile"
@@ -78,7 +71,7 @@
                 android:textSize="18sp"
                 android:textColor="#494949"
 
-                android:hint="Enter Postion"
+                android:hint="Enter Designation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -87,8 +80,8 @@
 
             android:layout_alignParentBottom="true"
             android:textColor="@color/white"
-            android:background="@color/primaryColor"
-            android:padding="10dp"
+            android:background="@color/sky"
+            android:padding="14dp"
 
             android:gravity="center"
             android:text="ADD CLIENT"

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.nkdroid.cropso.LoginActivity;
@@ -75,17 +76,22 @@ public class GcmMessageHandler extends IntentService {
     // This is just one simple example of what you might choose to do with
     // a GCM message.
     private void sendNotification(Bundle response) {
+//                Log.e("response.toString(): ",response.toString()+"");
+//        Toast.makeText(GcmMessageHandler.this,response.toString(),Toast.LENGTH_LONG).show();
         mNotificationManager = (NotificationManager)
                 this.getSystemService(Context.NOTIFICATION_SERVICE);
 
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-                new Intent(this, LoginActivity.class).putExtra("is_from_notification", true), 0);
+                new Intent(this, LoginActivity.class), 0);
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setAutoCancel(true)
                         .setSmallIcon(R.drawable.ic_launcher)
-                        .setContentTitle(response.getString("contentTitle").toString())
+//                        .setContentTitle(response.getString("contentTitle").toString())
+//                        .setStyle(new NotificationCompat.BigTextStyle().bigText(response.getString("message").toString()))
+//                        .setContentText(response.getString("message").toString());
+                        .setContentTitle(response.getString("message_title").toString())
                         .setStyle(new NotificationCompat.BigTextStyle().bigText(response.getString("message").toString()))
                         .setContentText(response.getString("message").toString());
 

@@ -1,4 +1,4 @@
-package com.nkdroid.cropso.Admin;
+ package com.nkdroid.cropso.Client;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,40 +15,45 @@ import com.nkdroid.cropso.R;
 import com.nkdroid.cropso.model.PrefUtils;
 import com.nkdroid.cropso.model.User;
 
-public class AdminHomeActivity extends ActionBarActivity {
+public class ClientMainActivity extends ActionBarActivity {
     private Toolbar toolbar;
-    private TextView clientList,projectList;
+    private TextView txtProjects,txtNotifications;
     private User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_home);
-        clientList= (TextView) findViewById(R.id.clientList);
-        projectList= (TextView) findViewById(R.id.projectList);
-        user= PrefUtils.getUser(AdminHomeActivity.this);
-        clientList.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_client_main);
+        user= PrefUtils.getUser(ClientMainActivity.this);
+        setActionBar();
+        txtProjects= (TextView) findViewById(R.id.txtProjects);
+        txtNotifications= (TextView) findViewById(R.id.txtNotifications);
+        txtProjects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(AdminHomeActivity.this,AdminClientListActivity.class);
+                Intent intent=new Intent(ClientMainActivity.this,ClientHomeActivity.class);
                 startActivity(intent);
             }
         });
 
-        projectList.setOnClickListener(new View.OnClickListener() {
+        txtNotifications.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(AdminHomeActivity.this,AdminProjectListActivity.class);
+                Intent intent=new Intent(ClientMainActivity.this,ClientNotificationsActivity.class);
                 startActivity(intent);
             }
         });
-        setActionBar();
+
+
     }
+
 
     private void setActionBar(){
         //Set ActionBar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
-            toolbar.setTitle("CropSo");
+            toolbar.setTitle("  CropSo");
+            toolbar.setLogo(R.drawable.ic_launcher);
             toolbar.setSubtitle("   Hi, "+user.fname+" "+user.lname);
             setSupportActionBar(toolbar);
         }
@@ -75,7 +80,7 @@ public class AdminHomeActivity extends ActionBarActivity {
             editorLogin.putBoolean("LOGIN",false);
             editorLogin.putInt("POSITION",0);
             editorLogin.commit();
-            Intent intent=new Intent(AdminHomeActivity.this, LoginActivity.class);
+            Intent intent=new Intent(ClientMainActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
             return true;
