@@ -57,8 +57,6 @@ public class EmployeeNotificationListActivity extends ActionBarActivity {
         setContentView(R.layout.activity_employee_notification_list);
         employee_notification_list= (ListView) findViewById(R.id.employee_notification_list);
         setActionBar();
-
-
         user= PrefUtils.getUser(EmployeeNotificationListActivity.this);
         getNotificationList();
 
