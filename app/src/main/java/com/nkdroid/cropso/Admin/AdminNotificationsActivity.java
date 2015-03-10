@@ -151,13 +151,9 @@ public class AdminNotificationsActivity extends ActionBarActivity {
 
             @Override
             protected Void doInBackground(Void... params) {
-
                 String response=getJsonStringfromUrl(AppConstants.NOTIFICATIONS+user.id);
-
                 notificationListClass=new GsonBuilder().create().fromJson(response,NotificationList.class);
                 notificationList=notificationListClass.notificationList;
-
-
                 return null;
             }
 

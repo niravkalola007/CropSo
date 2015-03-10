@@ -12,15 +12,20 @@ import android.widget.TextView;
 
 import com.nkdroid.cropso.LoginActivity;
 import com.nkdroid.cropso.R;
+import com.nkdroid.cropso.model.PrefUtils;
+import com.nkdroid.cropso.model.User;
 
 public class PmHomeActivity extends ActionBarActivity {
     private Toolbar toolbar;
+    private User user;
     private TextView txtResources,txtNotifications,txtProjects,txtEmployee,txtClient,txtReports;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pm_home);
+        user= PrefUtils.getUser(PmHomeActivity.this);
         setActionBar();
+
         txtResources= (TextView) findViewById(R.id.txtResources);
         txtResources.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +82,7 @@ public class PmHomeActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             toolbar.setTitle("CropSo");
-            toolbar.setSubtitle("Hi! Project Manager");
+            toolbar.setSubtitle("   Hi, "+user.fname+" "+user.lname);
             setSupportActionBar(toolbar);
         }
     }
