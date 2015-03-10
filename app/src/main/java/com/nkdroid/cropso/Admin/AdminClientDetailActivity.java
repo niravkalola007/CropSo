@@ -41,7 +41,7 @@ public class AdminClientDetailActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             toolbar.setNavigationIcon(R.drawable.ic_launcher);
-            toolbar.setTitle("Client Details");
+            toolbar.setTitle("Client Detail");
             setSupportActionBar(toolbar);
         }
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {

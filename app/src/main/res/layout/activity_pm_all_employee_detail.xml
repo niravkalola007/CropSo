@@ -14,29 +14,202 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
-            android:padding="@dimen/normal_margin"
+
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <View
+                android:layout_marginTop="16dp"
 
-            <TextView
-                android:gravity="center"
-                android:textColor="#494949"
-                android:text="Title"
-                android:textSize="@dimen/large_text"
-                android:id="@+id/txt_project_detail_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="1dp"
+                android:background="#ccc"></View>
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:paddingLeft="16dp"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#494949"
+                    android:text="First Name"
+                    android:textSize="@dimen/large_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:padding="16dp"
 
-            <TextView
-                android:layout_marginTop="8dp"
-                android:textColor="#494949"
-                android:text="Description: Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
-                android:textSize="@dimen/normal_text"
-                android:id="@+id/txt_project_detail_description"
+                    android:textColor="#494949"
+                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+                    android:textSize="@dimen/normal_text"
+                    android:id="@+id/txtFname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <View
+
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="1dp"
+                android:background="#ccc"></View>
+
+
+            <View
+                android:layout_marginTop="16dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc"></View>
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:paddingLeft="16dp"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#494949"
+                    android:text="Last Name"
+                    android:textSize="@dimen/large_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:padding="16dp"
+
+                    android:textColor="#494949"
+                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+                    android:textSize="@dimen/normal_text"
+                    android:id="@+id/txtLname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc"></View>
+
+            <View
+                android:layout_marginTop="16dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc"></View>
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:paddingLeft="16dp"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#494949"
+                    android:text="Email Address"
+                    android:textSize="@dimen/large_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:padding="16dp"
+
+                    android:textColor="#494949"
+                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+                    android:textSize="@dimen/normal_text"
+                    android:id="@+id/txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc"></View>
+
+            <View
+                android:layout_marginTop="16dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc"></View>
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:paddingLeft="16dp"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#494949"
+                    android:text="Mobile"
+                    android:textSize="@dimen/large_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:padding="16dp"
+
+                    android:textColor="#494949"
+                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+                    android:textSize="@dimen/normal_text"
+                    android:id="@+id/txtMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc"></View>
+
+
+            <View
+                android:layout_marginTop="16dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc"></View>
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:paddingLeft="16dp"
+                    android:gravity="center_vertical|left"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#494949"
+                    android:text="Designation"
+                    android:textSize="@dimen/large_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:padding="16dp"
+
+                    android:textColor="#494949"
+                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+                    android:textSize="@dimen/normal_text"
+                    android:id="@+id/txtDesignation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <View
+                android:layout_marginBottom="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc"></View>
         </LinearLayout>
     </ScrollView>
 
