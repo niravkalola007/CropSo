@@ -222,23 +222,27 @@
         </activity>
         <activity
             android:name=".ProjectManager.PmProjectListActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_pm_project_list" >
+            android:label="@string/title_activity_pm_project_list"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".ProjectManager.PmProjectEditableDetailActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_pm_project_editable_detail" >
+            android:label="@string/title_activity_pm_project_editable_detail"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Client.ClientMainActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_client_main" >
+            android:label="@string/title_activity_client_main"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Client.ClientNotificationsActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_activity_client_notifications" >
+            android:label="@string/title_activity_client_notifications"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".Admin.AdminNotificationsActivity"
+            android:label="@string/title_activity_admin_notifications" >
         </activity>
     </application>
 

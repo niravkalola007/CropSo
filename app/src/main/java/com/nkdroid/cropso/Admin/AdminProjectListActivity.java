@@ -25,6 +25,7 @@ import com.google.gson.GsonBuilder;
 import com.nkdroid.cropso.Client.ClientProjectDetailActivity;
 import com.nkdroid.cropso.Custom.AppConstants;
 import com.nkdroid.cropso.R;
+import com.nkdroid.cropso.model.PrefUtils;
 import com.nkdroid.cropso.model.User;
 import com.nkdroid.cropso.model.UserList;
 
@@ -160,6 +161,7 @@ public class AdminProjectListActivity extends ActionBarActivity {
             holder.img_edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    PrefUtils.setManager(AdminProjectListActivity.this,redeemList.get(position));
                     Intent intent=new Intent(AdminProjectListActivity.this,AdminEditableProjectActivity.class);
                     startActivity(intent);
                 }
@@ -197,6 +199,7 @@ public class AdminProjectListActivity extends ActionBarActivity {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    PrefUtils.setManager(AdminProjectListActivity.this,redeemList.get(position));
                     Intent intent=new Intent(AdminProjectListActivity.this,AdminProjectDetailActivity.class);
                     startActivity(intent);
                 }

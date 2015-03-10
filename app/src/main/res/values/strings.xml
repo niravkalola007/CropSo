@@ -60,5 +60,6 @@
     </string>
     <string name="title_activity_client_main">ClientMainActivity</string>
     <string name="title_activity_client_notifications">ClientNotificationsActivity</string>
+    <string name="title_activity_admin_notifications">AdminNotificationsActivity</string>
 
 </resources>

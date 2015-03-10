@@ -58,7 +58,6 @@ public class AddNewClientActivity extends ActionBarActivity {
         etLastName= (EditText) findViewById(R.id.etLastName);
         etEmail= (EditText) findViewById(R.id.etEmail);
         etPassword= (EditText) findViewById(R.id.etPassword);
-
         etMobile= (EditText) findViewById(R.id.etMobile);
         etPostion= (EditText) findViewById(R.id.etPostion);
         txt_add_client= (TextView) findViewById(R.id.txt_add_client);

@@ -168,6 +168,7 @@ public class AdminClientListActivity extends ActionBarActivity {
             holder.img_edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    PrefUtils.setClient(AdminClientListActivity.this,redeemList.get(position));
                     Intent intent=new Intent(AdminClientListActivity.this,AdminEditableClientActivity.class);
                     startActivity(intent);
                 }

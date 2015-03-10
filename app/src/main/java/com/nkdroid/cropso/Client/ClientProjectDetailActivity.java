@@ -42,7 +42,8 @@ public class ClientProjectDetailActivity extends ActionBarActivity {
         txtLanguages= (TextView) findViewById(R.id.txtLanguages);
         txtFrontEnd= (TextView) findViewById(R.id.txtFrontEnd);
         txtBackEnd= (TextView) findViewById(R.id.txtBackEnd);
-        donut_progress.setProgress(Integer.parseInt(project.progress));
+//        donut_progress.setProgress(Integer.parseInt(project.progress));
+        donut_progress.setProgress(70);
         endDate.setText(project.deadline_date);
         startDate.setText(project.start_date);
         txtAbstract.setText(project.abstractvalue);
