@@ -82,10 +82,6 @@ public class AdminClientListActivity extends ActionBarActivity {
             }
         });
         setActionBar();
-
-
-
-
     }
 
     @Override
