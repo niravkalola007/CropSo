@@ -159,7 +159,7 @@ public class ClientHomeActivity extends ActionBarActivity {
                 super.onPreExecute();
                 progressDialog=new ProgressDialog(ClientHomeActivity.this);
                 progressDialog.setCancelable(true);
-                progressDialog.setMessage("Fetching notifications...");
+                progressDialog.setMessage("Fetching projects...");
                 progressDialog.show();
             }
 
