@@ -23,8 +23,8 @@ public class User {
     public String registration_type;
     @SerializedName("notification_id")
     public String notification_id;
-    @SerializedName("dationesign")
-    public String dationesign;
+    @SerializedName("designation")
+    public String designation;
     @SerializedName("notification")
     public String notification;
     @SerializedName("progress")

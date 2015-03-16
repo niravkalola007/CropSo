@@ -9,47 +9,77 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ScrollView
+
+
+
+        <LinearLayout
+            android:padding="@dimen/normal_margin"
             android:layout_alignParentTop="true"
-            android:layout_above="@+id/txt_project_feedback"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:padding="@dimen/normal_margin"
-                android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+
+            <EditText
+                android:id="@+id/etFirstName"
+                android:textSize="18sp"
+                android:textColor="#494949"
+                android:hint="Enter First Name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/etLastName"
+                android:textSize="18sp"
+                android:textColor="#494949"
+                android:hint="Enter Last Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:inputType="textEmailAddress"
+                android:textSize="18sp"
+                android:textColor="#494949"
+                android:hint="Enter Email Address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
 
-                <EditText
-                    android:gravity="center"
-                    android:textColor="#494949"
-                    android:text="Title"
-                    android:textSize="@dimen/large_text"
-                    android:id="@+id/txt_project_detail_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <EditText
-                    android:layout_marginTop="8dp"
-                    android:textColor="#494949"
-                    android:text="Description: Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
-                    android:textSize="@dimen/normal_text"
-                    android:id="@+id/txt_project_detail_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </ScrollView>
+
+
+            <EditText
+                android:id="@+id/etMobile"
+                android:textSize="18sp"
+                android:textColor="#494949"
+                android:inputType="number"
+                android:hint="Enter Mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/etPostion"
+                android:textSize="18sp"
+                android:textColor="#494949"
+
+                android:hint="Enter Designation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
         <TextView
+
             android:layout_alignParentBottom="true"
             android:textColor="@color/white"
-            android:background="@color/primaryColor"
-            android:padding="10dp"
+            android:background="@color/sky"
+            android:padding="14dp"
 
             android:gravity="center"
-            android:text="EDIT"
+            android:text="EDIT EMPLOYEE"
             android:textSize="@dimen/normal_text"
-            android:id="@+id/txt_edit_project"
+            android:id="@+id/txtEditClient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </RelativeLayout>

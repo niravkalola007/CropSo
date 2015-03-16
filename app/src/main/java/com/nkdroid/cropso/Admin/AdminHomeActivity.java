@@ -17,7 +17,7 @@ import com.nkdroid.cropso.model.User;
 
 public class AdminHomeActivity extends ActionBarActivity {
     private Toolbar toolbar;
-    private TextView clientList,projectList;
+    private TextView clientList,projectList,txtNotifications;
     private User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,8 @@ public class AdminHomeActivity extends ActionBarActivity {
         setContentView(R.layout.activity_admin_home);
         clientList= (TextView) findViewById(R.id.clientList);
         projectList= (TextView) findViewById(R.id.projectList);
+        txtNotifications= (TextView) findViewById(R.id.txtNotifications);
+
         user= PrefUtils.getUser(AdminHomeActivity.this);
         clientList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +40,13 @@ public class AdminHomeActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(AdminHomeActivity.this,AdminProjectListActivity.class);
+                startActivity(intent);
+            }
+        });
+        txtNotifications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AdminHomeActivity.this,AdminNotificationsActivity.class);
                 startActivity(intent);
             }
         });

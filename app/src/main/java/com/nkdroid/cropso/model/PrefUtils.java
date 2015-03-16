@@ -89,4 +89,16 @@ public class PrefUtils {
         complexPreferences.commit();
     }
 
+    public static User getEmployee(final Context context){
+        ComplexPreferences complexPreferences = ComplexPreferences.getComplexPreferences(context, "employee_pref", 0);
+        return complexPreferences.getObject("current_employee", User.class);
+    }
+
+
+    public static void setEmployee(final Context context, final User affilateUser) {
+        ComplexPreferences complexPreferences = ComplexPreferences.getComplexPreferences(context, "employee_pref", 0);
+        complexPreferences.putObject("current_employee", affilateUser);
+        complexPreferences.commit();
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.nkdroid.cropso.ProjectManager;
+package com.nkdroid.cropso.Admin;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -37,7 +37,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class PmAllNotificationList extends ActionBarActivity {
+public class AdminNotificationsActivity extends ActionBarActivity {
     private ListView employee_notification_list;
     private ProjectListAdapter projectListAdapter;
     private NotificationList notificationListClass;
@@ -48,21 +48,18 @@ public class PmAllNotificationList extends ActionBarActivity {
     private String json = null;
     private ProgressDialog progressDialog;
     private User user;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pm_all_notification_list);
-        employee_notification_list= (ListView) findViewById(R.id.employee_notification_list);
+        setContentView(R.layout.activity_admin_notifications);
         employee_notification_list= (ListView) findViewById(R.id.employee_notification_list);
         setActionBar();
 
 
-        user= PrefUtils.getUser(PmAllNotificationList.this);
+        user= PrefUtils.getUser(AdminNotificationsActivity.this);
         getNotificationList();
-
-
     }
+
 
     private void setActionBar(){
         //Set ActionBar
@@ -146,7 +143,7 @@ public class PmAllNotificationList extends ActionBarActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                progressDialog=new ProgressDialog(PmAllNotificationList.this);
+                progressDialog=new ProgressDialog(AdminNotificationsActivity.this);
                 progressDialog.setCancelable(true);
                 progressDialog.setMessage("Fetching notifications...");
                 progressDialog.show();
@@ -165,7 +162,7 @@ public class PmAllNotificationList extends ActionBarActivity {
                 super.onPostExecute(aVoid);
                 progressDialog.dismiss();
 
-                projectListAdapter = new ProjectListAdapter(PmAllNotificationList.this, notificationList);
+                projectListAdapter = new ProjectListAdapter(AdminNotificationsActivity.this, notificationList);
                 employee_notification_list.setAdapter(projectListAdapter);
 
             }
