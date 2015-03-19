@@ -14,7 +14,7 @@ import com.nkdroid.cropso.R;
 
 public class ProjectDashboardActivity extends ActionBarActivity {
     private Toolbar toolbar;
-    private TextView txtDetails,txtSuggetion;
+    private TextView txtDetails,txtSuggetion,txtTask;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +22,14 @@ public class ProjectDashboardActivity extends ActionBarActivity {
         setActionBar();
         txtDetails= (TextView) findViewById(R.id.txtDetails);
         txtSuggetion= (TextView) findViewById(R.id.txtSuggetion);
+        txtTask= (TextView) findViewById(R.id.txtTask);
+        txtTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ProjectDashboardActivity.this, PmTaskList.class);
+                startActivity(i);
+            }
+        });
         txtSuggetion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

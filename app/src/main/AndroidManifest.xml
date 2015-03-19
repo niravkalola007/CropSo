@@ -248,6 +248,18 @@
             android:name=".ProjectManager.PmSuggetionListActivity"
             android:label="@string/title_activity_admin_notifications" >
         </activity>
+        <activity
+            android:name=".ProjectManager.PmTaskList"
+            android:label="@string/title_activity_pm_task_list" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmAddNewTask"
+            android:label="@string/title_activity_pm_add_new_task" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmTaskDetailActivity"
+            android:label="@string/title_activity_pm_add_new_task" >
+        </activity>
     </application>
 
 </manifest>

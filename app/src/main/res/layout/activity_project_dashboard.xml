@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
-
+                android:id="@+id/txtTask"
                 android:layout_marginTop="8dp"
                 android:text="Tasks"
                 android:gravity="center"

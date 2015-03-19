@@ -61,5 +61,7 @@
     <string name="title_activity_client_main">ClientMainActivity</string>
     <string name="title_activity_client_notifications">ClientNotificationsActivity</string>
     <string name="title_activity_admin_notifications">AdminNotificationsActivity</string>
+    <string name="title_activity_pm_task_list">PmTaskList</string>
+    <string name="title_activity_pm_add_new_task">PmAddNewTask</string>
 
 </resources>
