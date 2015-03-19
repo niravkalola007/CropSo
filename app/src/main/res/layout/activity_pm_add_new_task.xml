@@ -1,12 +1,59 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.nkdroid.cropso.ProjectManager.PmAddNewTask">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
+    <include layout="@layout/app_bar" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+<LinearLayout
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <EditText
+        android:textColor="#494949"
+        android:textSize="18sp"
+        android:hint="Enter Task Tilte"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-</RelativeLayout>
+    <Spinner
+        android:spinnerMode="dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:id="@+id/spinnerEmployees"
+        android:entries="@array/user_type"></Spinner>
+
+    <EditText
+        android:layout_marginTop="16dp"
+        android:textColor="#494949"
+        android:textSize="18sp"
+        android:padding="4dp"
+        android:minLines="5"
+        android:gravity="top"
+        android:hint="Enter Task Details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+
+        <TextView
+            android:layout_alignParentBottom="true"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:text="Add Task"
+            android:padding="16dp"
+            android:textColor="#fff"
+            android:background="@color/sky"
+            android:id="@+id/txtAddNewTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>
