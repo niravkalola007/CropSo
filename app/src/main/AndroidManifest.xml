@@ -244,6 +244,10 @@
             android:name=".Admin.AdminNotificationsActivity"
             android:label="@string/title_activity_admin_notifications" >
         </activity>
+        <activity
+            android:name=".ProjectManager.PmSuggetionListActivity"
+            android:label="@string/title_activity_admin_notifications" >
+        </activity>
     </application>
 
 </manifest>
