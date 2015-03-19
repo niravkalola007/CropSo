@@ -52,6 +52,7 @@ public class PmAddNewResource extends ActionBarActivity {
         projectListAdapter = new ProjectListAdapter(PmAddNewResource.this, projectList);
         employee_task_list.setAdapter(projectListAdapter);
     }
+
     private void setActionBar(){
         //Set ActionBar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
