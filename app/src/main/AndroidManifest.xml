@@ -260,6 +260,22 @@
             android:name=".ProjectManager.PmTaskDetailActivity"
             android:label="@string/title_activity_pm_add_new_task" >
         </activity>
+        <activity
+            android:name=".ProjectManager.PmEmployeeList"
+            android:label="@string/title_activity_pm_employee_list" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmAddNewEmployee"
+            android:label="@string/title_activity_pm_add_new_employee" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmResourceList"
+            android:label="@string/title_activity_pm_resource_list" >
+        </activity>
+        <activity
+            android:name=".ProjectManager.PmAddNewResource"
+            android:label="@string/title_activity_pm_add_new_resource" >
+        </activity>
     </application>
 
 </manifest>

@@ -63,5 +63,8 @@
     <string name="title_activity_admin_notifications">AdminNotificationsActivity</string>
     <string name="title_activity_pm_task_list">PmTaskList</string>
     <string name="title_activity_pm_add_new_task">PmAddNewTask</string>
+    <string name="title_activity_pm_employee_list">PmEmployeeList</string>
+    <string name="title_activity_pm_add_new_employee">PmAddNewEmployee</string>
+    <string name="title_activity_pm_resource_list">PmResourceList</string>
 
 </resources>

@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+    <include layout="@layout/app_bar" />
+
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:padding="@dimen/normal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+
+        <ListView
+            android:id="@+id/employee_task_list"
+            android:layout_width="match_parent"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:layout_height="match_parent">
+
+
+        </ListView>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/txtAddNewEmployee"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:background="@color/sky"
+        android:textColor="#fff"
+        android:text="Add New Employee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
