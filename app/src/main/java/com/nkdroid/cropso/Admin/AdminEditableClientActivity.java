@@ -61,12 +61,13 @@ public class AdminEditableClientActivity extends ActionBarActivity {
         etLastName= (EditText) findViewById(R.id.etLastName);
         etLastName.setText(client.lname);
         etEmail= (EditText) findViewById(R.id.etEmail);
-        etEmail.setText(client.mobile);
+        etEmail.setText(client.username);
 
         etMobile= (EditText) findViewById(R.id.etMobile);
         etMobile.setText(client.mobile);
         etPostion= (EditText) findViewById(R.id.etPostion);
-        etPostion.setText(client.designation);
+        etPostion.setVisibility(View.GONE);
+
 
         txtEditClient= (TextView) findViewById(R.id.txtEditClient);
         txtEditClient.setOnClickListener(new View.OnClickListener() {
@@ -115,8 +116,8 @@ public class AdminEditableClientActivity extends ActionBarActivity {
                    nameValuePairs.add(new BasicNameValuePair("fname",etFirstName.getText().toString().trim()+""));
                    nameValuePairs.add(new BasicNameValuePair("lname",etLastName.getText().toString().trim()+""));
                    nameValuePairs.add(new BasicNameValuePair("mobile",etMobile.getText().toString().trim()+""));
-                   nameValuePairs.add(new BasicNameValuePair("registration_type","Client"));
-                   nameValuePairs.add(new BasicNameValuePair("designation",etPostion.getText().toString().trim()+""));
+                   nameValuePairs.add(new BasicNameValuePair("registration_type","2"));
+
                    if (method.equals("POST")) {
                        // request method is POST
                        // defaultHttpClient

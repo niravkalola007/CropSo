@@ -67,7 +67,8 @@ public class AdminEditableProjectActivity extends ActionBarActivity {
         etMobile= (EditText) findViewById(R.id.etMobile);
         etMobile.setText(projectmanager.mobile);
         etPostion= (EditText) findViewById(R.id.etPostion);
-        etPostion.setText(projectmanager.designation);
+        etPostion.setVisibility(View.GONE);
+        etPostion.setText("");
 
         txtEditManager= (TextView) findViewById(R.id.txtEditManager);
         txtEditManager.setOnClickListener(new View.OnClickListener() {
@@ -118,8 +119,8 @@ public class AdminEditableProjectActivity extends ActionBarActivity {
                     nameValuePairs.add(new BasicNameValuePair("fname",etFirstName.getText().toString().trim()+""));
                     nameValuePairs.add(new BasicNameValuePair("lname",etLastName.getText().toString().trim()+""));
                     nameValuePairs.add(new BasicNameValuePair("mobile",etMobile.getText().toString().trim()+""));
-                    nameValuePairs.add(new BasicNameValuePair("registration_type","Project Manager"));
-                    nameValuePairs.add(new BasicNameValuePair("designation",etPostion.getText().toString().trim()+""));
+                    nameValuePairs.add(new BasicNameValuePair("registration_type","3"));
+
                     if (method.equals("POST")) {
                         // request method is POST
                         // defaultHttpClient

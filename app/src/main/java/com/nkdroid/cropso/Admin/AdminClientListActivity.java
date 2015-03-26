@@ -326,7 +326,7 @@ public class AdminClientListActivity extends ActionBarActivity {
             @Override
             protected Void doInBackground(Void... params) {
 
-                String response=getJsonStringfromUrl(AppConstants.GET_USER_DETAILS+"Client");
+                String response=getJsonStringfromUrl(AppConstants.GET_USER_DETAILS+"2");
                 Log.e("response", response+"");
                 userListClass=new GsonBuilder().create().fromJson(response,UserList.class);
                 clientList=userListClass.userArrayList;

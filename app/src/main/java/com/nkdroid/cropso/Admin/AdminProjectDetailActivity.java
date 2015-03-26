@@ -31,7 +31,7 @@ public class AdminProjectDetailActivity extends ActionBarActivity {
         txtLname.setText(projectManager.lname);
         txtEmail.setText(projectManager.username);
         txtMobile.setText(projectManager.mobile);
-        txtDesignation.setText(projectManager.designation);
+        txtDesignation.setText("");
     }
 
 

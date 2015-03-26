@@ -31,7 +31,7 @@ public class PmAllEmployeeDetailActivity extends ActionBarActivity {
         txtLname.setText(employee.lname);
         txtEmail.setText(employee.username);
         txtMobile.setText(employee.mobile);
-        txtDesignation.setText(employee.designation);
+        txtDesignation.setText("");
 
     }
 

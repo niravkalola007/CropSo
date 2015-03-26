@@ -60,6 +60,7 @@ public class AddNewClientActivity extends ActionBarActivity {
         etPassword= (EditText) findViewById(R.id.etPassword);
         etMobile= (EditText) findViewById(R.id.etMobile);
         etPostion= (EditText) findViewById(R.id.etPostion);
+        etPostion.setVisibility(View.GONE);
         txt_add_client= (TextView) findViewById(R.id.txt_add_client);
         txt_add_client.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,9 +75,7 @@ public class AddNewClientActivity extends ActionBarActivity {
                     Toast.makeText(AddNewClientActivity.this, "Please Enter Password", Toast.LENGTH_LONG).show();
                 } else if(isEmptyField(etMobile)){
                     Toast.makeText(AddNewClientActivity.this, "Please Enter Mobile", Toast.LENGTH_LONG).show();
-                } else if(isEmptyField(etPostion)){
-                    Toast.makeText(AddNewClientActivity.this, "Please Enter Designation", Toast.LENGTH_LONG).show();
-                } else if(isEmailMatch(etEmail)==false){
+                }  else if(isEmailMatch(etEmail)==false){
                     Toast.makeText(AddNewClientActivity.this, "Please Enter Valid Email", Toast.LENGTH_LONG).show();
                 } else {
                     addClient();
@@ -139,8 +138,8 @@ public class AddNewClientActivity extends ActionBarActivity {
                     nameValuePairs.add(new BasicNameValuePair("fname",etFirstName.getText().toString().trim()+""));
                     nameValuePairs.add(new BasicNameValuePair("lname",etLastName.getText().toString().trim()+""));
                     nameValuePairs.add(new BasicNameValuePair("mobile",etMobile.getText().toString().trim()+""));
-                    nameValuePairs.add(new BasicNameValuePair("registration_type","Client"));
-                    nameValuePairs.add(new BasicNameValuePair("designation",etPostion.getText().toString().trim()+""));
+                    nameValuePairs.add(new BasicNameValuePair("registration_type","2"));
+
                     if (method.equals("POST")) {
                         // request method is POST
                         // defaultHttpClient

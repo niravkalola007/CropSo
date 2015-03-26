@@ -36,10 +36,10 @@ public class ComplexPreferences {
 	public static ComplexPreferences getComplexPreferences(Context context,
 			String namePreferences, int mode) {
 
-		if (complexPreferences == null) {
+//		if (complexPreferences == null) {
 			complexPreferences = new ComplexPreferences(context,
 					namePreferences, mode);
-		}
+//		}
 
 		return complexPreferences;
 	}

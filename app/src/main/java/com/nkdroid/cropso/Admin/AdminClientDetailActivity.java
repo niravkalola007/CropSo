@@ -31,7 +31,7 @@ public class AdminClientDetailActivity extends ActionBarActivity {
         txtLname.setText(client.lname);
         txtEmail.setText(client.username);
         txtMobile.setText(client.mobile);
-        txtDesignation.setText(client.designation);
+        txtDesignation.setText("");
 
     }
 

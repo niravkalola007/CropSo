@@ -295,7 +295,7 @@ public class AdminProjectListActivity extends ActionBarActivity {
 
                     String responseCode=jsonObject.getString("message");
                     if(responseCode.equalsIgnoreCase("success")){
-                        Toast.makeText(AdminProjectListActivity.this, "Client Removed Successfully...", Toast.LENGTH_LONG).show();
+                        Toast.makeText(AdminProjectListActivity.this, "Project Manager Removed Successfully...", Toast.LENGTH_LONG).show();
                         getUsers();
 
                     } else {
@@ -323,7 +323,7 @@ public class AdminProjectListActivity extends ActionBarActivity {
             @Override
             protected Void doInBackground(Void... params) {
 
-                String response=getJsonStringfromUrl(AppConstants.GET_USER_DETAILS+"Project%20Manager");
+                String response=getJsonStringfromUrl(AppConstants.GET_USER_DETAILS+"3");
                 Log.e("response", response + "");
                 userListClass=new GsonBuilder().create().fromJson(response,UserList.class);
                 projectList=userListClass.userArrayList;

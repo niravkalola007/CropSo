@@ -320,9 +320,9 @@ public class LoginActivity extends ActionBarActivity {
 
                     nameValuePairs.add(new BasicNameValuePair("username",etEmail.getText().toString().trim()+""));
                     nameValuePairs.add(new BasicNameValuePair("password",etPassword.getText().toString().trim()+""));
-                    nameValuePairs.add(new BasicNameValuePair("registration_type",userTypeList.get(spinnerUserType.getSelectedItemPosition())+""));
+                    nameValuePairs.add(new BasicNameValuePair("registration_type",spinnerUserType.getSelectedItemPosition()+""));
                     nameValuePairs.add(new BasicNameValuePair("notification_id",regid+""));
-
+                    Log.e("nameValuePairs",nameValuePairs+"");
                     if (method.equals("POST")) {
                         // request method is POST
                         // defaultHttpClient

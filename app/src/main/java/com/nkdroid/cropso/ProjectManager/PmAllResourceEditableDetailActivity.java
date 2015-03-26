@@ -66,7 +66,7 @@ public class PmAllResourceEditableDetailActivity extends ActionBarActivity {
         etMobile= (EditText) findViewById(R.id.etMobile);
         etMobile.setText(employee.mobile);
         etPostion= (EditText) findViewById(R.id.etPostion);
-        etPostion.setText(employee.designation);
+        etPostion.setText("");
 
         txtEditClient= (TextView) findViewById(R.id.txtEditClient);
         txtEditClient.setOnClickListener(new View.OnClickListener() {
