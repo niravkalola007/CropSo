@@ -19,6 +19,9 @@ public class Project {
     public String functions;
     @SerializedName("programming_languages")
     public String programming_languages;
+    @SerializedName("technology_id")
+    public String technology_id;
+
     @SerializedName("front_end")
     public String front_end;
     @SerializedName("back_end")
