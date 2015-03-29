@@ -1,26 +1,36 @@
 package com.nkdroid.cropso.ProjectManager;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.GsonBuilder;
 import com.nkdroid.cropso.Custom.AppConstants;
 import com.nkdroid.cropso.R;
 import com.nkdroid.cropso.model.PrefUtils;
+import com.nkdroid.cropso.model.Technology;
+import com.nkdroid.cropso.model.TechnologyList;
 import com.nkdroid.cropso.model.User;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -32,6 +42,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.SocketException;
@@ -42,7 +53,8 @@ import java.util.List;
 
 public class PmAllResourceEditableDetailActivity extends ActionBarActivity {
     private Toolbar toolbar;
-    private EditText etFirstName,etLastName,etEmail,etMobile,etPostion;
+    private Spinner spinnerSkill;
+    private EditText etFirstName,etLastName,etEmail,etMobile,etAddress;
     private TextView txtEditClient;
     private User employee;
     private ProgressDialog progressDialog;
@@ -50,6 +62,7 @@ public class PmAllResourceEditableDetailActivity extends ActionBarActivity {
     private static InputStream is = null;
     private int code;
     private String json = null;
+    ArrayList<Technology> technologyArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +70,8 @@ public class PmAllResourceEditableDetailActivity extends ActionBarActivity {
         setActionBar();
         employee= PrefUtils.getEmployee(PmAllResourceEditableDetailActivity.this);
         etFirstName= (EditText) findViewById(R.id.etFirstName);
+        etAddress= (EditText) findViewById(R.id.etAddress);
+        etAddress.setText(employee.address);
         etFirstName.setText(employee.fname);
         etLastName= (EditText) findViewById(R.id.etLastName);
         etLastName.setText(employee.lname);
@@ -65,8 +80,8 @@ public class PmAllResourceEditableDetailActivity extends ActionBarActivity {
 
         etMobile= (EditText) findViewById(R.id.etMobile);
         etMobile.setText(employee.mobile);
-        etPostion= (EditText) findViewById(R.id.etPostion);
-        etPostion.setText("");
+        spinnerSkill= (Spinner) findViewById(R.id.spinnerSkill);
+
 
         txtEditClient= (TextView) findViewById(R.id.txtEditClient);
         txtEditClient.setOnClickListener(new View.OnClickListener() {
@@ -75,8 +90,127 @@ public class PmAllResourceEditableDetailActivity extends ActionBarActivity {
                 updateClient();
             }
         });
+        getTechnologyList();
     }
 
+    private void getTechnologyList() {
+
+        new AsyncTask<Void,Void,Void>(){
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                progressDialog=new ProgressDialog(PmAllResourceEditableDetailActivity.this);
+                progressDialog.setCancelable(true);
+                progressDialog.setMessage("Fetching technologies...");
+                progressDialog.show();
+            }
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                String response=getJsonStringfromUrl(AppConstants.TECHNOLOGY_LIST);
+                TechnologyList technologyList=new GsonBuilder().create().fromJson(response, TechnologyList.class);
+                technologyArrayList=technologyList.technologyArrayList;
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                progressDialog.dismiss();
+
+                UserTypeAdapter userTypeAdapter=new UserTypeAdapter(PmAllResourceEditableDetailActivity.this,R.layout.temp_item_row,technologyArrayList);
+                spinnerSkill.setAdapter(userTypeAdapter);
+                for(int i=0;i<technologyArrayList.size();i++){
+                    if(technologyArrayList.get(i).technology_name.equals(employee.skill)){
+                        spinnerSkill.setSelection(i,true);
+                        return;
+                    }
+                }
+
+            }
+        }.execute();
+    }
+
+    public class UserTypeAdapter extends ArrayAdapter<Technology> {
+
+        Context context;
+        int layoutResourceId;
+        ArrayList<Technology> values;
+        // int android.R.Layout.
+
+        public UserTypeAdapter(Context context, int resource, ArrayList<Technology> objects) {
+            super(context, resource, objects);
+            this.context = context;
+            this.values=objects;
+        }
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+
+            TextView txt = new TextView(PmAllResourceEditableDetailActivity.this);
+            txt.setPadding(16,16,16,16);
+            txt.setTextSize(18);
+            txt.setGravity(Gravity.CENTER_VERTICAL);
+            txt.setText(values.get(position).technology_name);
+            txt.setTextColor(Color.parseColor("#494949"));
+            return  txt;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            TextView txt = new TextView(PmAllResourceEditableDetailActivity.this);
+            txt.setGravity(Gravity.CENTER_VERTICAL);
+            txt.setPadding(16,16,16,16);
+            txt.setTextSize(18);
+            txt.setText(values.get(position).technology_name);
+            txt.setTextColor(Color.parseColor("#494949"));
+            return  txt;
+        }
+    }
+    public String getJsonStringfromUrl(String url) {
+
+        try {
+
+            StringBuilder builder = new StringBuilder();
+
+            DefaultHttpClient httpClient = new DefaultHttpClient();
+
+            HttpGet httpGet = new HttpGet(url);
+
+            HttpResponse httpResponse = httpClient.execute(httpGet);
+
+            code = httpResponse.getStatusLine().getStatusCode();
+
+            if (code == 200) {
+                HttpEntity httpentity = httpResponse.getEntity();
+                is = httpentity.getContent();
+
+                BufferedReader br = new BufferedReader(new InputStreamReader(
+                        is, "iso-8859-1"), 8);
+
+                String line = null;
+                while ((line = br.readLine()) != null) {
+                    builder.append(line + "\n");
+                }
+                is.close();
+            }
+
+            json = builder.toString();
+
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return json;
+
+    }
     private void setActionBar(){
         //Set ActionBar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -116,8 +250,9 @@ public class PmAllResourceEditableDetailActivity extends ActionBarActivity {
                     nameValuePairs.add(new BasicNameValuePair("fname",etFirstName.getText().toString().trim()+""));
                     nameValuePairs.add(new BasicNameValuePair("lname",etLastName.getText().toString().trim()+""));
                     nameValuePairs.add(new BasicNameValuePair("mobile",etMobile.getText().toString().trim()+""));
-                    nameValuePairs.add(new BasicNameValuePair("registration_type","Employee"));
-                    nameValuePairs.add(new BasicNameValuePair("designation",etPostion.getText().toString().trim()+""));
+                    nameValuePairs.add(new BasicNameValuePair("registration_type","4"));
+                    nameValuePairs.add(new BasicNameValuePair("address",etAddress.getText().toString().trim()+""));
+                    nameValuePairs.add(new BasicNameValuePair("skill",spinnerSkill.getSelectedItemPosition()+""));
                     if (method.equals("POST")) {
                         // request method is POST
                         // defaultHttpClient

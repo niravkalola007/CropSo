@@ -178,7 +178,7 @@ public class PmAllEmployeeListActivity extends ActionBarActivity {
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
+                            deleteUser(redeemList.get(position).id);
                             dialog.dismiss();
 
                         }
@@ -325,7 +325,7 @@ public class PmAllEmployeeListActivity extends ActionBarActivity {
             @Override
             protected Void doInBackground(Void... params) {
 
-                String response=getJsonStringfromUrl(AppConstants.GET_USER_DETAILS+"Employee");
+                String response=getJsonStringfromUrl(AppConstants.GET_USER_DETAILS+"4");
                 Log.e("response", response+"");
                 userListClass=new GsonBuilder().create().fromJson(response,UserList.class);
                 projectList=userListClass.userArrayList;

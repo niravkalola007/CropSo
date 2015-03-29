@@ -51,6 +51,15 @@
 
 
             <EditText
+                android:id="@+id/etAddress"
+                android:textSize="18sp"
+                android:textColor="#494949"
+                android:minLines="3"
+                android:hint="Enter Address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
                 android:id="@+id/etMobile"
                 android:textSize="18sp"
                 android:textColor="#494949"
@@ -59,12 +68,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/etPostion"
+            <Spinner
+                android:id="@+id/spinnerSkill"
                 android:textSize="18sp"
                 android:textColor="#494949"
 
-                android:hint="Enter Designation"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

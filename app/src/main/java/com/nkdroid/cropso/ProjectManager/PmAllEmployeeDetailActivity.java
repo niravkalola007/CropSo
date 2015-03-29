@@ -14,7 +14,7 @@ import com.nkdroid.cropso.model.User;
 
 public class PmAllEmployeeDetailActivity extends ActionBarActivity {
     private Toolbar toolbar;
-    private TextView txtFname,txtLname,txtEmail,txtMobile,txtDesignation;
+    private TextView txtFname,txtLname,txtEmail,txtMobile,txtSkill;
     private User employee;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +26,12 @@ public class PmAllEmployeeDetailActivity extends ActionBarActivity {
         txtLname= (TextView) findViewById(R.id.txtLname);
         txtEmail= (TextView) findViewById(R.id.txtEmail);
         txtMobile= (TextView) findViewById(R.id.txtMobile);
-        txtDesignation= (TextView) findViewById(R.id.txtDesignation);
+        txtSkill= (TextView) findViewById(R.id.txtSkill);
         txtFname.setText(employee.fname);
         txtLname.setText(employee.lname);
         txtEmail.setText(employee.username);
         txtMobile.setText(employee.mobile);
-        txtDesignation.setText("");
+        txtSkill.setText(employee.skill);
 
     }
 

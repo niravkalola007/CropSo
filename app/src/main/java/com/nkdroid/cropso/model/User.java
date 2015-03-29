@@ -23,6 +23,9 @@ public class User {
     public String registration_type;
     @SerializedName("notification_id")
     public String notification_id;
-
+    @SerializedName("skill")
+    public String skill;
+    @SerializedName("address")
+    public String address;
 
 }

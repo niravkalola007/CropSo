@@ -31,7 +31,7 @@
 
             android:layout_alignParentBottom="true"
             android:textColor="@color/white"
-            android:background="@color/primaryColor"
+            android:background="@color/sky"
             android:padding="10dp"
 
             android:gravity="center"

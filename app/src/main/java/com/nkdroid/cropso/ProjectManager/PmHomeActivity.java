@@ -60,6 +60,7 @@ public class PmHomeActivity extends ActionBarActivity {
         });
 
         txtClient= (TextView) findViewById(R.id.txtClient);
+        txtClient.setVisibility(View.GONE);
         txtClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

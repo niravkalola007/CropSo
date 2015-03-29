@@ -15,5 +15,6 @@ public class AppConstants {
     public static final String CLIENT_FEEDBACK="http://138.128.162.218/~nkdroidc/cso/mobile/client_feedback.php";
     public static final String CLIENT_PROJECTS="http://138.128.162.218/~nkdroidc/cso/mobile/get_client_project_details.php?client_id=";
 
-
+    //PM
+    public static final String TECHNOLOGY_LIST="http://138.128.162.218/~nkdroidc/cso/mobile/get_technologies.php";
 }

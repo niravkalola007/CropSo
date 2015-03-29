@@ -73,12 +73,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/etPostion"
+            <Spinner
+                android:id="@+id/spinnerSkill"
                 android:textSize="18sp"
                 android:textColor="#494949"
 
-                android:hint="Enter Postion"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -87,7 +87,7 @@
 
             android:layout_alignParentBottom="true"
             android:textColor="@color/white"
-            android:background="@color/primaryColor"
+            android:background="@color/sky"
             android:padding="10dp"
 
             android:gravity="center"
